@@ -1,6 +1,6 @@
 import React from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { Star } from "lucide-react";
+import { Star, Monitor } from "lucide-react";
 
 const desktopApps = [
   {
