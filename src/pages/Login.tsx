@@ -101,7 +101,10 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    navigate("/dashboard");
+    // Simulate login validation
+    if (username && password) {
+      navigate("/two-step-verification");
+    }
   };
 
   const handleQRSignIn = () => {
@@ -109,38 +112,47 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="min-h-screen bg-gray-50 flex">
       {/* Left side - Logo */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-              <div className="w-8 h-8 bg-white rounded transform rotate-45"></div>
-              <div className="w-3 h-3 bg-orange-500 absolute"></div>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-white rounded-lg transform rotate-45"></div>
+              <div className="w-4 h-4 bg-orange-500 absolute rounded-sm"></div>
             </div>
-            <span className="text-2xl font-bold text-gray-900">accops</span>
+            <div className="text-left">
+              <span className="text-3xl font-bold text-gray-900 block">
+                accops
+              </span>
+              <span className="text-sm text-gray-500 uppercase tracking-wider">
+                Workspace
+              </span>
+            </div>
           </div>
-          <div className="text-sm text-gray-600">Workspace</div>
         </div>
       </div>
 
       {/* Right side - Login Form */}
-      <div className="flex-1 bg-white flex items-center justify-center">
+      <div className="flex-1 bg-white flex items-center justify-center border-l border-gray-100">
         <div className="w-full max-w-md px-8">
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-2xl font-medium text-gray-900 mb-2">
+          <div className="space-y-8">
+            <div className="text-center">
+              <h1 className="text-2xl font-semibold text-gray-900 mb-3">
                 Sign-in
               </h1>
               <p className="text-sm text-gray-600">
                 Selected organization is{" "}
-                <span className="text-blue-600">accops.com</span>
+                <span className="text-blue-600 font-medium">accops.com</span>
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="username" className="sr-only">
+                <Label
+                  htmlFor="username"
+                  className="text-sm font-medium text-gray-700"
+                >
                   Username
                 </Label>
                 <div className="relative">
@@ -160,14 +172,18 @@ export default function Login() {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                    className="pl-10 h-12 border-gray-300"
+                    placeholder="Enter your username"
+                    className="pl-10 h-12 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="sr-only">
+                <Label
+                  htmlFor="password"
+                  className="text-sm font-medium text-gray-700"
+                >
                   Password
                 </Label>
                 <div className="relative">
@@ -187,8 +203,9 @@ export default function Login() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Type your password"
-                    className="pl-10 h-12 border-gray-300"
+                    placeholder="Enter your password"
+                    className="pl-10 h-12 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    required
                   />
                 </div>
               </div>
@@ -202,27 +219,35 @@ export default function Login() {
                 </Button>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <Button
                   onClick={handleSignIn}
-                  className="w-full h-12 bg-accops-blue hover:bg-accops-blue-dark text-white font-medium"
+                  disabled={!username || !password}
+                  className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   Sign-in
                 </Button>
 
-                <div className="text-center text-sm text-gray-500">or</div>
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t border-gray-200" />
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="bg-white px-4 text-gray-500">or</span>
+                  </div>
+                </div>
 
                 <Button
                   onClick={handleQRSignIn}
                   variant="outline"
-                  className="w-full h-12 border-gray-300 text-gray-700 hover:bg-gray-50"
+                  className="w-full h-12 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
                 >
                   Sign-in with QR code
                 </Button>
 
                 <Button
                   variant="outline"
-                  className="w-full h-12 border-gray-300 text-gray-700 hover:bg-gray-50"
+                  className="w-full h-12 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
                 >
                   Sign-in with AzureAD
                 </Button>
