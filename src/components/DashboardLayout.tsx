@@ -82,12 +82,14 @@ export function DashboardLayout({
               <Menu className="w-4 h-4" />
             </Button>
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-sm">
-                <div className="w-6 h-6 bg-white rounded transform rotate-45"></div>
-                <div className="w-2 h-2 bg-orange-500 absolute rounded-sm"></div>
+              <div className="bg-white rounded-lg p-2 shadow-sm border border-gray-100">
+                <img
+                  src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
+                  alt="Accops Logo"
+                  className="h-5 w-auto"
+                />
               </div>
               <div>
-                <span className="font-bold text-gray-900 text-lg">accops</span>
                 <div className="text-xs text-gray-500 uppercase tracking-wider">
                   Workspace
                 </div>

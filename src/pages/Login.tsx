@@ -164,12 +164,14 @@ export default function Login() {
           <div className="relative z-10 max-w-md">
             {/* Logo */}
             <div className="flex items-center gap-4 mb-16">
-              <div className="w-14 h-14 bg-white/95 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg transform rotate-45"></div>
-                <div className="w-3 h-3 bg-white absolute rounded-sm"></div>
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl">
+                <img
+                  src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
+                  alt="Accops Logo"
+                  className="h-8 w-auto"
+                />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-white">accops</h1>
                 <p className="text-blue-100 text-sm uppercase tracking-wider font-medium">
                   Workspace
                 </p>
@@ -221,12 +223,14 @@ export default function Login() {
           <div className="w-full max-w-md mx-auto lg:mx-0">
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center justify-center gap-3 mb-12">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                <div className="w-7 h-7 bg-white rounded-lg transform rotate-45"></div>
-                <div className="w-2 h-2 bg-orange-500 absolute rounded-sm"></div>
+              <div className="bg-white rounded-xl p-3 shadow-lg border border-gray-100">
+                <img
+                  src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
+                  alt="Accops Logo"
+                  className="h-6 w-auto"
+                />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">accops</h1>
                 <p className="text-gray-500 text-xs uppercase tracking-wider">
                   Workspace
                 </p>
