@@ -9,6 +9,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeSelector } from "@/components/ThemeSelector";
+import { useTheme } from "@/hooks/use-theme";
 import {
   Star,
   Settings,
@@ -22,6 +24,8 @@ import {
   HelpCircle,
   RotateCcw,
   LucideIcon,
+  Palette,
+  LogOut,
 } from "lucide-react";
 
 const sidebarItems = [
@@ -54,8 +58,10 @@ export function DashboardLayout({
   icon: TitleIcon,
 }: DashboardLayoutProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [showThemeSelector, setShowThemeSelector] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { currentTheme } = useTheme();
 
   const handleLogout = () => {
     navigate("/");
@@ -101,13 +107,18 @@ export function DashboardLayout({
                 onClick={() => navigate(item.path)}
                 className={`w-full flex items-center gap-3 px-3 py-3 text-left rounded-lg transition-all duration-200 ${
                   isActive
-                    ? "bg-blue-50 text-blue-700 border border-blue-200 shadow-sm"
+                    ? "text-white shadow-sm"
                     : "text-gray-600 hover:bg-gray-200 hover:text-gray-900"
                 }`}
+                style={
+                  isActive
+                    ? {
+                        backgroundColor: `rgb(var(--primary))`,
+                      }
+                    : {}
+                }
               >
-                <Icon
-                  className={`w-5 h-5 ${isActive ? "text-blue-600" : ""}`}
-                />
+                <Icon className={`w-5 h-5 ${isActive ? "text-white" : ""}`} />
                 <span className="text-sm font-medium">{item.label}</span>
               </button>
             );
@@ -164,7 +175,10 @@ export function DashboardLayout({
         {/* Top Header */}
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shadow-sm">
           <div className="flex items-center gap-3">
-            <TitleIcon className="w-6 h-6 text-blue-600" />
+            <TitleIcon
+              className="w-6 h-6"
+              style={{ color: `rgb(var(--primary))` }}
+            />
             <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
           </div>
 
@@ -176,7 +190,15 @@ export function DashboardLayout({
                 placeholder="Search applications..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 h-10 w-72 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg"
+                className="pl-10 pr-4 h-10 w-72 border-gray-300 rounded-lg"
+                onFocus={(e) => {
+                  e.target.style.borderColor = `rgb(var(--primary))`;
+                  e.target.style.boxShadow = `0 0 0 3px rgb(var(--primary) / 0.1)`;
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "";
+                  e.target.style.boxShadow = "";
+                }}
               />
             </div>
 
@@ -194,7 +216,16 @@ export function DashboardLayout({
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="w-9 h-9 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                    className="w-9 h-9 rounded-full text-white font-medium transition-all duration-200"
+                    style={{
+                      backgroundColor: `rgb(var(--primary))`,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = `rgb(var(--primary-dark))`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = `rgb(var(--primary))`;
+                    }}
                   >
                     S
                   </Button>
@@ -213,6 +244,13 @@ export function DashboardLayout({
                     <Settings className="w-4 h-4" />
                     Preferences
                   </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => setShowThemeSelector(true)}
+                    className="flex items-center gap-2"
+                  >
+                    <Palette className="w-4 h-4" />
+                    Change Theme
+                  </DropdownMenuItem>
                   <DropdownMenuItem className="flex items-center gap-2">
                     <Monitor className="w-4 h-4" />
                     RDP Settings
@@ -222,19 +260,7 @@ export function DashboardLayout({
                     onClick={handleLogout}
                     className="text-red-600 flex items-center gap-2"
                   >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                      />
-                    </svg>
+                    <LogOut className="w-4 h-4" />
                     Logout
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -257,6 +283,11 @@ export function DashboardLayout({
           </div>
         </div>
       </div>
+
+      <ThemeSelector
+        isOpen={showThemeSelector}
+        onClose={() => setShowThemeSelector(false)}
+      />
     </div>
   );
 }
