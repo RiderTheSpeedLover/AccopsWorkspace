@@ -39,16 +39,31 @@ const QRCodeModal = ({
           </p>
 
           <div className="flex justify-center py-4">
-            <div className="w-48 h-48 bg-black p-4 rounded-lg">
-              <div className="w-full h-full bg-white rounded grid grid-cols-8 gap-px">
-                {Array.from({ length: 64 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className={`${
-                      Math.random() > 0.5 ? "bg-black" : "bg-white"
-                    }`}
-                  />
-                ))}
+            <div className="w-48 h-48 bg-white border-2 border-gray-200 rounded-lg p-3">
+              <div className="w-full h-full bg-black rounded grid grid-cols-12 gap-px p-2">
+                {Array.from({ length: 144 }).map((_, i) => {
+                  // Create a more realistic QR code pattern
+                  const isCorner =
+                    (i < 24 && i % 12 < 3) ||
+                    (i < 24 && i % 12 > 8) ||
+                    (i > 119 && i % 12 < 3) ||
+                    (i > 119 && i % 12 > 8);
+                  const isAlignment =
+                    i >= 48 && i <= 95 && i % 12 >= 4 && i % 12 <= 7;
+                  const isData = !isCorner && !isAlignment;
+
+                  const shouldBeFilled =
+                    isCorner ||
+                    (isAlignment && Math.random() > 0.3) ||
+                    (isData && Math.random() > 0.4);
+
+                  return (
+                    <div
+                      key={i}
+                      className={`${shouldBeFilled ? "bg-white" : "bg-black"}`}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
