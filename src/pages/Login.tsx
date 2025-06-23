@@ -163,19 +163,12 @@ export default function Login() {
 
           <div className="relative z-10 max-w-md">
             {/* Logo */}
-            <div className="flex items-center gap-4 mb-16">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl">
-                <img
-                  src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
-                  alt="Accops Logo"
-                  className="h-8 w-auto"
-                />
-              </div>
-              <div>
-                <p className="text-blue-100 text-sm uppercase tracking-wider font-medium">
-                  Workspace
-                </p>
-              </div>
+            <div className="mb-16">
+              <img
+                src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
+                alt="Accops Logo"
+                className="h-12 w-auto"
+              />
             </div>
 
             {/* Content */}
@@ -222,19 +215,12 @@ export default function Login() {
         <div className="flex-1 flex flex-col justify-center px-8 sm:px-16 lg:px-20 xl:px-32 max-w-2xl mx-auto lg:mx-0">
           <div className="w-full max-w-md mx-auto lg:mx-0">
             {/* Mobile Logo */}
-            <div className="lg:hidden flex items-center justify-center gap-3 mb-12">
-              <div className="bg-white rounded-xl p-3 shadow-lg border border-gray-100">
-                <img
-                  src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
-                  alt="Accops Logo"
-                  className="h-6 w-auto"
-                />
-              </div>
-              <div>
-                <p className="text-gray-500 text-xs uppercase tracking-wider">
-                  Workspace
-                </p>
-              </div>
+            <div className="lg:hidden flex justify-center mb-12">
+              <img
+                src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
+                alt="Accops Logo"
+                className="h-8 w-auto"
+              />
             </div>
 
             {/* Header */}

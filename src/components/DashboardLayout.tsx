@@ -81,20 +81,11 @@ export function DashboardLayout({
             >
               <Menu className="w-4 h-4" />
             </Button>
-            <div className="flex items-center gap-2">
-              <div className="bg-white rounded-lg p-2 shadow-sm border border-gray-100">
-                <img
-                  src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
-                  alt="Accops Logo"
-                  className="h-5 w-auto"
-                />
-              </div>
-              <div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">
-                  Workspace
-                </div>
-              </div>
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/assets/b6c85b60348d45f5871b1d3664d56961/accops_logo.653bdac-f95953?format=webp&width=800"
+              alt="Accops Logo"
+              className="h-7 w-auto"
+            />
           </div>
         </div>
 
