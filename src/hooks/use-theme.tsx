@@ -114,9 +114,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     const currentTheme = themes[theme];
 
-    if (currentTheme) {
-      // Batch DOM updates to prevent layout thrashing
-      requestAnimationFrame(() => {
+    if (!currentTheme) return;
+
+    // Use a more reliable approach for theme changes
+    const applyTheme = () => {
+      try {
         // Update CSS variables in a single batch
         const updates = [
           ["--primary", currentTheme.primary],
@@ -135,12 +137,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
         // Add CSS class for additional optimizations
         root.setAttribute("data-theme", theme);
-      });
 
-      // Store in localStorage (non-blocking)
-      setTimeout(() => {
+        // Store in localStorage immediately
         localStorage.setItem("accops-theme", theme);
-      }, 0);
+      } catch (error) {
+        console.warn("Theme update failed:", error);
+      }
+    };
+
+    // Apply theme immediately if document is ready, otherwise wait
+    if (document.readyState === "complete") {
+      applyTheme();
+    } else {
+      requestAnimationFrame(applyTheme);
     }
   }, [theme]);
 
