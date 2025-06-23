@@ -171,3 +171,16 @@ export function useTheme() {
   }
   return context;
 }
+
+// Add a utility to safely get theme without throwing
+export function useThemeSafe() {
+  try {
+    return useTheme();
+  } catch {
+    return {
+      theme: "blue",
+      setTheme: () => {},
+      currentTheme: themes.blue,
+    };
+  }
+}
