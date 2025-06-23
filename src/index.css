@@ -59,6 +59,13 @@
     --gray-600: 0 0% 45%;
     --gray-700: 0 0% 25%;
     --gray-900: 0 0% 13%;
+
+    /* Theme variables - default to blue */
+    --primary: 59 130 246;
+    --primary-dark: 37 99 235;
+    --primary-light: 147 197 253;
+    --accent: 219 234 254;
+    --theme-gradient: from-blue-500 to-blue-600;
   }
 
   .dark {
