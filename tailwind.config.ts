@@ -67,6 +67,12 @@ export default {
           "blue-dark": "hsl(var(--accops-blue-dark))",
           green: "hsl(var(--accops-green))",
         },
+        theme: {
+          primary: "rgb(var(--primary))",
+          "primary-dark": "rgb(var(--primary-dark))",
+          "primary-light": "rgb(var(--primary-light))",
+          accent: "rgb(var(--accent))",
+        },
         gray: {
           50: "hsl(var(--gray-50))",
           100: "hsl(var(--gray-100))",
