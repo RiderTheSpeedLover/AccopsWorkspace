@@ -22,15 +22,7 @@ const AppTile = ({
   icon: string;
   bgColor: string;
 }) => (
-  <div
-    className="flex flex-col items-center p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group"
-    onMouseEnter={(e) => {
-      e.currentTarget.style.borderColor = `rgb(var(--primary) / 0.3)`;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.borderColor = "";
-    }}
-  >
+  <div className="flex flex-col items-center p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group theme-hover-border">
     <div
       className={`w-12 h-12 ${bgColor} rounded-lg flex items-center justify-center mb-2 group-hover:scale-105 transition-transform`}
     >
