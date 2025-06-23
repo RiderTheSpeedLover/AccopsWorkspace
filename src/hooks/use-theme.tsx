@@ -115,19 +115,32 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const currentTheme = themes[theme];
 
     if (currentTheme) {
-      // Update CSS variables
-      root.style.setProperty("--primary", currentTheme.primary);
-      root.style.setProperty("--primary-dark", currentTheme.primaryDark);
-      root.style.setProperty("--primary-light", currentTheme.primaryLight);
-      root.style.setProperty("--accent", currentTheme.accent);
-      root.style.setProperty("--theme-gradient", currentTheme.gradient);
+      // Batch DOM updates to prevent layout thrashing
+      requestAnimationFrame(() => {
+        // Update CSS variables in a single batch
+        const updates = [
+          ["--primary", currentTheme.primary],
+          ["--primary-dark", currentTheme.primaryDark],
+          ["--primary-light", currentTheme.primaryLight],
+          ["--accent", currentTheme.accent],
+          ["--theme-gradient", currentTheme.gradient],
+          ["--accops-blue", currentTheme.primary],
+          ["--accops-blue-dark", currentTheme.primaryDark],
+        ];
 
-      // Update specific component colors
-      root.style.setProperty("--accops-blue", currentTheme.primary);
-      root.style.setProperty("--accops-blue-dark", currentTheme.primaryDark);
+        // Apply all updates at once
+        updates.forEach(([property, value]) => {
+          root.style.setProperty(property, value);
+        });
 
-      // Store in localStorage
-      localStorage.setItem("accops-theme", theme);
+        // Add CSS class for additional optimizations
+        root.setAttribute("data-theme", theme);
+      });
+
+      // Store in localStorage (non-blocking)
+      setTimeout(() => {
+        localStorage.setItem("accops-theme", theme);
+      }, 0);
     }
   }, [theme]);
 
