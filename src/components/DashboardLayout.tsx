@@ -115,21 +115,43 @@ export function DashboardLayout({
         </nav>
 
         {/* Sidebar Footer */}
-        <div className="p-4 border-t border-gray-200 space-y-2">
-          <div className="flex items-center gap-2 text-sm">
-            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-            <span className="text-red-600 font-medium">Turbo Failed</span>
+        <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+            <div className="flex items-center gap-2 text-sm">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <span className="text-red-700 font-medium">
+                Turbo Mode Failed
+              </span>
+            </div>
+            <p className="text-xs text-red-600 mt-1">
+              Connection issue detected
+            </p>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-xs text-gray-500">Version: 7.0.1.1088</span>
+            <span className="text-xs text-gray-500 font-mono">v7.0.1.1088</span>
             <div className="flex gap-1">
-              <Button variant="ghost" size="icon" className="w-6 h-6">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="w-7 h-7 hover:bg-gray-200 rounded-md"
+                title="Information"
+              >
                 <Info className="w-3 h-3 text-gray-400" />
               </Button>
-              <Button variant="ghost" size="icon" className="w-6 h-6">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="w-7 h-7 hover:bg-gray-200 rounded-md"
+                title="Calendar"
+              >
                 <Calendar className="w-3 h-3 text-gray-400" />
               </Button>
-              <Button variant="ghost" size="icon" className="w-6 h-6">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="w-7 h-7 hover:bg-gray-200 rounded-md"
+                title="Help"
+              >
                 <HelpCircle className="w-3 h-3 text-gray-400" />
               </Button>
             </div>
