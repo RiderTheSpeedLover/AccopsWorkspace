@@ -225,10 +225,14 @@ export function DashboardLayout({
         <main className="flex-1 p-6 overflow-auto">{children}</main>
 
         {/* Bottom Status */}
-        <div className="h-8 bg-gray-50 border-t border-gray-200 flex items-center px-6">
+        <div className="h-10 bg-gray-50 border-t border-gray-200 flex items-center justify-between px-6">
           <span className="text-xs text-gray-500">
             Right click on desktop for power options.
           </span>
+          <div className="flex items-center gap-4 text-xs text-gray-500">
+            <span>Connected</span>
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          </div>
         </div>
       </div>
     </div>
