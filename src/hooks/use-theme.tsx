@@ -22,6 +22,56 @@ export const themes: Record<string, Theme> = {
     gradient: "from-blue-500 to-blue-600",
     description: "Professional and trustworthy",
   },
+  orange: {
+    name: "orange",
+    label: "Accops Orange",
+    primary: "251 146 60", // orange-400
+    primaryDark: "249 115 22", // orange-500
+    primaryLight: "253 186 116", // orange-300
+    accent: "255 237 213", // orange-100
+    gradient: "from-orange-400 to-orange-500",
+    description: "Brand signature color",
+  },
+  red: {
+    name: "red",
+    label: "Dynamic Red",
+    primary: "239 68 68", // red-500
+    primaryDark: "220 38 38", // red-600
+    primaryLight: "252 165 165", // red-300
+    accent: "254 226 226", // red-100
+    gradient: "from-red-500 to-red-600",
+    description: "Bold and energetic",
+  },
+  amber: {
+    name: "amber",
+    label: "Golden Amber",
+    primary: "245 158 11", // amber-500
+    primaryDark: "217 119 6", // amber-600
+    primaryLight: "252 211 77", // amber-300
+    accent: "255 251 235", // amber-50
+    gradient: "from-amber-500 to-amber-600",
+    description: "Warm and inviting",
+  },
+  emerald: {
+    name: "emerald",
+    label: "Emerald Green",
+    primary: "16 185 129", // emerald-500
+    primaryDark: "5 150 105", // emerald-600
+    primaryLight: "110 231 183", // emerald-300
+    accent: "209 250 229", // emerald-100
+    gradient: "from-emerald-500 to-emerald-600",
+    description: "Growth and sustainability",
+  },
+  teal: {
+    name: "teal",
+    label: "Corporate Teal",
+    primary: "20 184 166", // teal-500
+    primaryDark: "13 148 136", // teal-600
+    primaryLight: "94 234 212", // teal-300
+    accent: "204 251 241", // teal-100
+    gradient: "from-teal-500 to-teal-600",
+    description: "Balanced and reliable",
+  },
   indigo: {
     name: "indigo",
     label: "Deep Indigo",
@@ -42,36 +92,6 @@ export const themes: Record<string, Theme> = {
     gradient: "from-purple-500 to-purple-600",
     description: "Creative and innovative",
   },
-  emerald: {
-    name: "emerald",
-    label: "Emerald Green",
-    primary: "16 185 129", // emerald-500
-    primaryDark: "5 150 105", // emerald-600
-    primaryLight: "110 231 183", // emerald-300
-    accent: "209 250 229", // emerald-100
-    gradient: "from-emerald-500 to-emerald-600",
-    description: "Growth and sustainability",
-  },
-  orange: {
-    name: "orange",
-    label: "Vibrant Orange",
-    primary: "249 115 22", // orange-500
-    primaryDark: "234 88 12", // orange-600
-    primaryLight: "253 186 116", // orange-300
-    accent: "255 237 213", // orange-100
-    gradient: "from-orange-500 to-orange-600",
-    description: "Energetic and dynamic",
-  },
-  teal: {
-    name: "teal",
-    label: "Corporate Teal",
-    primary: "20 184 166", // teal-500
-    primaryDark: "13 148 136", // teal-600
-    primaryLight: "94 234 212", // teal-300
-    accent: "204 251 241", // teal-100
-    gradient: "from-teal-500 to-teal-600",
-    description: "Balanced and reliable",
-  },
   rose: {
     name: "rose",
     label: "Elegant Rose",
@@ -91,6 +111,26 @@ export const themes: Record<string, Theme> = {
     accent: "241 245 249", // slate-100
     gradient: "from-slate-500 to-slate-600",
     description: "Professional and neutral",
+  },
+  cyan: {
+    name: "cyan",
+    label: "Electric Cyan",
+    primary: "8 145 178", // cyan-600
+    primaryDark: "14 116 144", // cyan-700
+    primaryLight: "103 232 249", // cyan-300
+    accent: "207 250 254", // cyan-100
+    gradient: "from-cyan-600 to-cyan-700",
+    description: "Fresh and modern",
+  },
+  lime: {
+    name: "lime",
+    label: "Vibrant Lime",
+    primary: "132 204 22", // lime-500
+    primaryDark: "101 163 13", // lime-600
+    primaryLight: "190 242 100", // lime-300
+    accent: "236 252 203", // lime-100
+    gradient: "from-lime-500 to-lime-600",
+    description: "Fresh and energetic",
   },
 };
 
