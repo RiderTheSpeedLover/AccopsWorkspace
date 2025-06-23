@@ -17,10 +17,23 @@ interface ThemeSelectorProps {
 
 export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
   const { theme: currentTheme, setTheme } = useTheme();
+  const [pendingTheme, setPendingTheme] = React.useState<string | null>(null);
 
-  const handleThemeChange = (themeName: string) => {
-    setTheme(themeName);
-  };
+  const handleThemeChange = React.useCallback(
+    (themeName: string) => {
+      // Set pending theme immediately for UI feedback
+      setPendingTheme(themeName);
+
+      // Debounce the actual theme change
+      const timeoutId = setTimeout(() => {
+        setTheme(themeName);
+        setPendingTheme(null);
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    },
+    [setTheme],
+  );
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -43,13 +56,14 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {Object.entries(themes).map(([key, themeData]) => {
               const isSelected = currentTheme === key;
+              const isPending = pendingTheme === key;
 
               return (
                 <button
                   key={key}
                   onClick={() => handleThemeChange(key)}
                   className={`relative p-4 rounded-xl border-2 transition-all duration-200 text-left group hover:shadow-lg ${
-                    isSelected
+                    isSelected || isPending
                       ? "border-blue-500 bg-blue-50 shadow-md"
                       : "border-gray-200 hover:border-gray-300 bg-white"
                   }`}
@@ -76,9 +90,13 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
                     <h3 className="font-semibold text-gray-900 flex-1">
                       {themeData.label}
                     </h3>
-                    {isSelected && (
+                    {(isSelected || isPending) && (
                       <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                        <Check className="w-4 h-4 text-white" />
+                        {isPending ? (
+                          <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        ) : (
+                          <Check className="w-4 h-4 text-white" />
+                        )}
                       </div>
                     )}
                   </div>
@@ -112,7 +130,7 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
                   </div>
 
                   {/* Selection Overlay */}
-                  {isSelected && (
+                  {(isSelected || isPending) && (
                     <div className="absolute inset-0 bg-blue-500/5 rounded-xl pointer-events-none" />
                   )}
                 </button>
