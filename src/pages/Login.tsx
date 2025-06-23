@@ -155,12 +155,7 @@ export default function Login() {
 
       <div className="relative min-h-screen flex">
         {/* Left Panel - Branding */}
-        <div
-          className="hidden lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:px-16 xl:px-24 relative overflow-hidden"
-          style={{
-            background: `linear-gradient(135deg, rgb(var(--primary)), rgb(var(--primary-dark)))`,
-          }}
-        >
+        <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:px-16 xl:px-24 relative overflow-hidden theme-gradient-bg">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
@@ -261,10 +256,7 @@ export default function Login() {
                 </Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <User
-                      className="w-5 h-5 text-gray-400 group-focus-within:transition-colors"
-                      style={{ "--tw-text-opacity": "var(--primary)" }}
-                    />
+                    <User className="w-5 h-5 text-gray-400 group-focus-within:theme-primary transition-colors" />
                   </div>
                   <Input
                     id="username"
@@ -273,19 +265,7 @@ export default function Login() {
                     onChange={(e) => setUsername(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Enter your username"
-                    className="pl-12 h-14 text-base border-gray-200 bg-gray-50/50 focus:bg-white transition-all duration-200"
-                    style={{
-                      "--tw-ring-color": `rgb(var(--primary) / 0.2)`,
-                      "--tw-border-opacity": "var(--primary)",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = `rgb(var(--primary))`;
-                      e.target.style.boxShadow = `0 0 0 3px rgb(var(--primary) / 0.1)`;
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "";
-                      e.target.style.boxShadow = "";
-                    }}
+                    className="pl-12 h-14 text-base border-gray-200 bg-gray-50/50 focus:bg-white theme-focus transition-all duration-200"
                     required
                   />
                 </div>
@@ -300,10 +280,7 @@ export default function Login() {
                 </Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <Lock
-                      className="w-5 h-5 text-gray-400 group-focus-within:transition-colors"
-                      style={{ "--tw-text-opacity": "var(--primary)" }}
-                    />
+                    <Lock className="w-5 h-5 text-gray-400 group-focus-within:theme-primary transition-colors" />
                   </div>
                   <Input
                     id="password"
@@ -312,15 +289,7 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Enter your password"
-                    className="pl-12 pr-12 h-14 text-base border-gray-200 bg-gray-50/50 focus:bg-white transition-all duration-200"
-                    onFocus={(e) => {
-                      e.target.style.borderColor = `rgb(var(--primary))`;
-                      e.target.style.boxShadow = `0 0 0 3px rgb(var(--primary) / 0.1)`;
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "";
-                      e.target.style.boxShadow = "";
-                    }}
+                    className="pl-12 pr-12 h-14 text-base border-gray-200 bg-gray-50/50 focus:bg-white theme-focus transition-all duration-200"
                     required
                   />
                   <button
@@ -343,9 +312,7 @@ export default function Login() {
                     id="remember-me"
                     type="checkbox"
                     className="h-4 w-4 border-gray-300 rounded"
-                    style={{
-                      accentColor: `rgb(var(--primary))`,
-                    }}
+                    style={{ accentColor: `rgb(var(--primary))` }}
                   />
                   <label
                     htmlFor="remember-me"
@@ -356,8 +323,7 @@ export default function Login() {
                 </div>
                 <Button
                   variant="link"
-                  className="p-0 h-auto text-sm font-medium hover:opacity-80"
-                  style={{ color: `rgb(var(--primary))` }}
+                  className="theme-primary p-0 h-auto text-sm font-medium hover:opacity-80"
                 >
                   Forgot password?
                 </Button>
@@ -366,19 +332,7 @@ export default function Login() {
               <Button
                 onClick={handleSignIn}
                 disabled={!username || !password || isLoading}
-                className="w-full h-14 text-base font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl border-0"
-                style={{
-                  backgroundColor: `rgb(var(--primary))`,
-                  ":hover": {
-                    backgroundColor: `rgb(var(--primary-dark))`,
-                  },
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = `rgb(var(--primary-dark))`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = `rgb(var(--primary))`;
-                }}
+                className="w-full h-14 text-base font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl border-0 theme-primary-bg theme-primary-hover"
               >
                 {isLoading ? (
                   <div className="flex items-center gap-2">
