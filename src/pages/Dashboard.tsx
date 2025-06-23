@@ -62,8 +62,14 @@ const AppTile = ({
   onClick?: () => void;
 }) => (
   <div
-    className="flex flex-col items-center p-5 bg-white rounded-xl border border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-200 cursor-pointer group"
+    className="flex flex-col items-center p-5 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group"
     onClick={onClick}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.borderColor = `rgb(var(--primary) / 0.3)`;
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.borderColor = "";
+    }}
   >
     <div
       className={`w-14 h-14 ${bgColor} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm`}
@@ -83,7 +89,10 @@ export default function Dashboard() {
         {/* Desktops Section */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <Monitor className="w-5 h-5 text-blue-600" />
+            <Monitor
+              className="w-5 h-5"
+              style={{ color: `rgb(var(--primary))` }}
+            />
             <h2 className="text-xl font-semibold text-gray-900">Desktops</h2>
             <div className="flex-1 h-px bg-gray-200"></div>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
@@ -105,7 +114,10 @@ export default function Dashboard() {
         {/* Applications Section */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <Star className="w-5 h-5 text-blue-600" />
+            <Star
+              className="w-5 h-5"
+              style={{ color: `rgb(var(--primary))` }}
+            />
             <h2 className="text-xl font-semibold text-gray-900">
               Favorite Applications
             </h2>
