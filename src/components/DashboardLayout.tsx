@@ -107,16 +107,9 @@ export function DashboardLayout({
                 onClick={() => navigate(item.path)}
                 className={`w-full flex items-center gap-3 px-3 py-3 text-left rounded-lg transition-all duration-200 ${
                   isActive
-                    ? "text-white shadow-sm"
+                    ? "text-white shadow-sm theme-primary-bg"
                     : "text-gray-600 hover:bg-gray-200 hover:text-gray-900"
                 }`}
-                style={
-                  isActive
-                    ? {
-                        backgroundColor: `rgb(var(--primary))`,
-                      }
-                    : {}
-                }
               >
                 <Icon className={`w-5 h-5 ${isActive ? "text-white" : ""}`} />
                 <span className="text-sm font-medium">{item.label}</span>
@@ -175,10 +168,7 @@ export function DashboardLayout({
         {/* Top Header */}
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shadow-sm">
           <div className="flex items-center gap-3">
-            <TitleIcon
-              className="w-6 h-6"
-              style={{ color: `rgb(var(--primary))` }}
-            />
+            <TitleIcon className="w-6 h-6 theme-primary" />
             <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
           </div>
 
@@ -190,15 +180,7 @@ export function DashboardLayout({
                 placeholder="Search applications..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 h-10 w-72 border-gray-300 rounded-lg"
-                onFocus={(e) => {
-                  e.target.style.borderColor = `rgb(var(--primary))`;
-                  e.target.style.boxShadow = `0 0 0 3px rgb(var(--primary) / 0.1)`;
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "";
-                  e.target.style.boxShadow = "";
-                }}
+                className="pl-10 pr-4 h-10 w-72 border-gray-300 rounded-lg theme-focus"
               />
             </div>
 
@@ -216,16 +198,7 @@ export function DashboardLayout({
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="w-9 h-9 rounded-full text-white font-medium transition-all duration-200"
-                    style={{
-                      backgroundColor: `rgb(var(--primary))`,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = `rgb(var(--primary-dark))`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = `rgb(var(--primary))`;
-                    }}
+                    className="w-9 h-9 rounded-full text-white font-medium transition-all duration-200 theme-primary-bg theme-primary-hover"
                   >
                     S
                   </Button>
