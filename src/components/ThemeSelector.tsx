@@ -19,19 +19,29 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
   const { theme: currentTheme, setTheme } = useTheme();
   const [isChanging, setIsChanging] = React.useState(false);
 
+  // Reset changing state when modal opens/closes
+  React.useEffect(() => {
+    if (!isOpen) {
+      setIsChanging(false);
+    }
+  }, [isOpen]);
+
   const handleThemeChange = React.useCallback(
     (themeName: string) => {
       if (isChanging || currentTheme === themeName) return;
 
       setIsChanging(true);
 
-      // Apply theme immediately but with visual feedback
+      // Apply theme immediately
       setTheme(themeName);
 
-      // Reset changing state after a brief delay for visual feedback
-      setTimeout(() => {
+      // Reset changing state and provide visual feedback
+      const timeoutId = setTimeout(() => {
         setIsChanging(false);
       }, 300);
+
+      // Cleanup function
+      return () => clearTimeout(timeoutId);
     },
     [setTheme, currentTheme, isChanging],
   );
@@ -159,9 +169,10 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
           <div className="flex justify-center pt-4">
             <Button
               onClick={onClose}
-              className="px-8 bg-blue-600 hover:bg-blue-700"
+              disabled={isChanging}
+              className="px-8 bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
             >
-              Done
+              {isChanging ? "Applying..." : "Done"}
             </Button>
           </div>
         </div>
