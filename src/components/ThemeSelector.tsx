@@ -141,15 +141,12 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
             </div>
           </div>
 
-          <div className="flex gap-3 pt-4">
-            <Button onClick={onClose} variant="outline" className="flex-1">
-              Cancel
-            </Button>
+          <div className="flex justify-center pt-4">
             <Button
               onClick={onClose}
-              className="flex-1 bg-blue-600 hover:bg-blue-700"
+              className="px-8 bg-blue-600 hover:bg-blue-700"
             >
-              Apply Theme
+              Done
             </Button>
           </div>
         </div>
