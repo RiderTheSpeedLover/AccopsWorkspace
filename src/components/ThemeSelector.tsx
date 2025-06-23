@@ -26,6 +26,20 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
     }
   }, [isOpen]);
 
+  // Handle escape key
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen && !isChanging) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      return () => document.removeEventListener("keydown", handleEscape);
+    }
+  }, [isOpen, isChanging, onClose]);
+
   const handleThemeChange = React.useCallback(
     (themeName: string) => {
       if (isChanging || currentTheme === themeName) return;
@@ -46,8 +60,14 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
     [setTheme, currentTheme, isChanging],
   );
 
+  const handleClose = React.useCallback(() => {
+    if (!isChanging) {
+      onClose();
+    }
+  }, [isChanging, onClose]);
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl border-0 shadow-2xl">
         <DialogHeader className="text-center space-y-4 pb-6">
           <div className="mx-auto w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
@@ -168,7 +188,7 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
 
           <div className="flex justify-center pt-4">
             <Button
-              onClick={onClose}
+              onClick={handleClose}
               disabled={isChanging}
               className="px-8 bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
             >
