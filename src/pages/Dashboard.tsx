@@ -62,15 +62,15 @@ const AppTile = ({
   onClick?: () => void;
 }) => (
   <div
-    className="flex flex-col items-center p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group"
+    className="flex flex-col items-center p-5 bg-white rounded-xl border border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-200 cursor-pointer group"
     onClick={onClick}
   >
     <div
-      className={`w-12 h-12 ${bgColor} rounded-lg flex items-center justify-center mb-2 group-hover:scale-105 transition-transform`}
+      className={`w-14 h-14 ${bgColor} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm`}
     >
-      <span className="text-xl">{icon}</span>
+      <span className="text-2xl">{icon}</span>
     </div>
-    <span className="text-sm text-gray-700 text-center leading-tight">
+    <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
       {name}
     </span>
   </div>
@@ -79,11 +79,18 @@ const AppTile = ({
 export default function Dashboard() {
   return (
     <DashboardLayout activeItem="Favorites" title="Favorites" icon={Star}>
-      <div className="space-y-8">
+      <div className="space-y-10">
         {/* Desktops Section */}
         <section>
-          <h2 className="text-lg font-medium text-gray-900 mb-4">Desktops</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex items-center gap-3 mb-6">
+            <Monitor className="w-5 h-5 text-blue-600" />
+            <h2 className="text-xl font-semibold text-gray-900">Desktops</h2>
+            <div className="flex-1 h-px bg-gray-200"></div>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+              {desktopApps.length} available
+            </span>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {desktopApps.map((app) => (
               <AppTile
                 key={app.name}
@@ -97,10 +104,17 @@ export default function Dashboard() {
 
         {/* Applications Section */}
         <section>
-          <h2 className="text-lg font-medium text-gray-900 mb-4">
-            Applications
-          </h2>
-          <div className="grid grid-cols-5 gap-4">
+          <div className="flex items-center gap-3 mb-6">
+            <Star className="w-5 h-5 text-blue-600" />
+            <h2 className="text-xl font-semibold text-gray-900">
+              Favorite Applications
+            </h2>
+            <div className="flex-1 h-px bg-gray-200"></div>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+              {applications.length} apps
+            </span>
+          </div>
+          <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
             {applications.map((app) => (
               <AppTile
                 key={app.name}
