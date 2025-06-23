@@ -110,9 +110,53 @@
 @layer base {
   * {
     @apply border-border;
+    transition:
+      border-color 150ms ease,
+      background-color 150ms ease,
+      color 150ms ease;
   }
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Theme-aware utility classes for better performance */
+  .theme-primary {
+    color: rgb(var(--primary));
+  }
+
+  .theme-primary-bg {
+    background-color: rgb(var(--primary));
+  }
+
+  .theme-primary-border {
+    border-color: rgb(var(--primary));
+  }
+
+  .theme-primary-hover:hover {
+    background-color: rgb(var(--primary-dark));
+  }
+
+  .theme-focus:focus {
+    border-color: rgb(var(--primary));
+    box-shadow: 0 0 0 3px rgb(var(--primary) / 0.1);
+  }
+
+  .theme-gradient-bg {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--primary)),
+      rgb(var(--primary-dark))
+    );
+  }
+
+  .theme-accent-bg {
+    background-color: rgb(var(--accent));
+  }
+
+  .theme-hover-border:hover {
+    border-color: rgb(var(--primary) / 0.3);
   }
 }
