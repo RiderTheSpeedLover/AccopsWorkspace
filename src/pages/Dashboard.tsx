@@ -282,17 +282,16 @@ export default function Dashboard() {
   const handleToggleFavorite = (appId: string) => {
     const app = allCombinedApps.find((a) => a.id === appId);
     if (app) {
-      const appType =
-        app.category === "Web"
-          ? "web"
-          : app.category === "Network"
-            ? "network"
-            : "application";
+      let appType = "application";
+      if (app.category === "Web") appType = "web";
+      else if (app.category === "Network") appType = "network";
+      else if (app.category === "Virtual") appType = "virtual";
+
       toggleFavorite({
         id: app.id,
         name: app.name,
         icon: app.icon,
-        type: appType,
+        type: appType as any,
         isActive: app.isActive,
         category: app.category,
       });
