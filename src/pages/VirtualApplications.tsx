@@ -222,8 +222,8 @@ export default function VirtualApplications() {
 
   return (
     <DashboardLayout
-      activeItem="Virtual Applications"
-      title="Virtual Applications"
+      activeItem="Applications"
+      title="Applications"
       icon={Settings}
     >
       <div className="space-y-8">
