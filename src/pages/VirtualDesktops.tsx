@@ -152,11 +152,7 @@ export default function VirtualDesktops() {
   );
 
   return (
-    <DashboardLayout
-      activeItem="Virtual Desktops"
-      title="Virtual Desktops"
-      icon={Monitor}
-    >
+    <DashboardLayout activeItem="Desktops" title="Desktops" icon={Monitor}>
       <div className="space-y-8">
         {/* SHD Desktops */}
         <section>
