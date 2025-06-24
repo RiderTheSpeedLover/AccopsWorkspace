@@ -215,14 +215,20 @@ const FolderTile = ({ folder }: { folder: any }) => {
 };
 
 export default function VirtualApplications() {
-  const [virtualApps, setVirtualApps] = useState(initialVirtualApps);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleToggleFavorite = (appId: string) => {
-    setVirtualApps((prev) =>
-      prev.map((app) =>
-        app.id === appId ? { ...app, isFavorite: !app.isFavorite } : app,
-      ),
-    );
+    const app = initialVirtualApps.find((a) => a.id === appId);
+    if (app) {
+      const IconComponent = app.icon;
+      toggleFavorite({
+        id: app.id,
+        name: app.name,
+        icon: IconComponent,
+        type: "virtual",
+        isActive: app.isActive,
+      });
+    }
   };
 
   return (
