@@ -124,7 +124,7 @@ export default function NetworkApplications() {
                   >
                     <Star
                       className={`w-3 h-3 ${
-                        app.isFavorite
+                        isFavorite(app.id, "network")
                           ? "text-yellow-500 fill-current"
                           : "text-gray-400"
                       }`}
