@@ -65,15 +65,21 @@ const initialNetworkApps: NetworkApp[] = [
 ];
 
 export default function NetworkApplications() {
-  const [networkApps, setNetworkApps] =
-    useState<NetworkApp[]>(initialNetworkApps);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleToggleFavorite = (appId: string) => {
-    setNetworkApps((prev) =>
-      prev.map((app) =>
-        app.id === appId ? { ...app, isFavorite: !app.isFavorite } : app,
-      ),
-    );
+    const app = initialNetworkApps.find((a) => a.id === appId);
+    if (app) {
+      const IconComponent = app.icon;
+      toggleFavorite({
+        id: app.id,
+        name: app.name,
+        icon: IconComponent,
+        type: "network",
+        isActive: app.isActive,
+        bgColor: app.bgColor,
+      });
+    }
   };
 
   return (
