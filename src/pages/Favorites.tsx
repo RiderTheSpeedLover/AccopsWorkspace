@@ -43,7 +43,7 @@ export default function Favorites() {
                       <Button
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Handle unfavorite action
+                          toggleFavorite(app);
                         }}
                         variant="ghost"
                         size="sm"
@@ -53,7 +53,11 @@ export default function Favorites() {
                       </Button>
 
                       <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
-                        <span className="text-xl">{app.icon}</span>
+                        {typeof app.icon === "string" ? (
+                          <span className="text-xl">{app.icon}</span>
+                        ) : (
+                          <app.icon className="w-6 h-6 text-blue-600" />
+                        )}
                       </div>
                       <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
                         {app.name}
