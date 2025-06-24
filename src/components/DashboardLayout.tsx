@@ -206,6 +206,13 @@ export function DashboardLayout({
                     Preferences
                   </DropdownMenuItem>
                   <DropdownMenuItem
+                    onClick={() => navigate("/network-applications")}
+                    className="flex items-center gap-2"
+                  >
+                    <Network className="w-4 h-4" />
+                    Network Applications
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
                     onClick={(e) => {
                       e.preventDefault();
                       setShowActivityManager(true);
