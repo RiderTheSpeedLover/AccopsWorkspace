@@ -20,14 +20,14 @@ const AppTile = ({
   icon: any;
   bgColor: string;
 }) => (
-  <div className="flex flex-col items-center p-6 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group theme-hover-border">
+  <div className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border h-32">
     <div
-      className={`w-16 h-16 ${bgColor} rounded-lg flex items-center justify-center mb-3 group-hover:scale-105 transition-transform relative`}
+      className={`w-12 h-12 ${bgColor} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm relative`}
     >
-      <Icon className="w-8 h-8 text-gray-600" />
-      <Wifi className="w-4 h-4 text-blue-600 absolute -top-1 -right-1" />
+      <Icon className="w-6 h-6 text-gray-600" />
+      <Wifi className="w-3 h-3 text-blue-600 absolute -top-1 -right-1" />
     </div>
-    <span className="text-sm text-gray-700 text-center leading-tight">
+    <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
       {name}
     </span>
   </div>
