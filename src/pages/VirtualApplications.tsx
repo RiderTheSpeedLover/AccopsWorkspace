@@ -216,6 +216,7 @@ const FolderTile = ({ folder }: { folder: any }) => {
 
 export default function VirtualApplications() {
   const { toggleFavorite, isFavorite } = useFavorites();
+  const [selectedFolder, setSelectedFolder] = useState("All");
 
   const handleToggleFavorite = (appId: string) => {
     const app = initialVirtualApps.find((a) => a.id === appId);
@@ -230,6 +231,25 @@ export default function VirtualApplications() {
       });
     }
   };
+
+  // Filter apps based on selected folder
+  const getFilteredApps = () => {
+    if (selectedFolder === "All") {
+      return initialVirtualApps;
+    }
+
+    const folderMap: Record<string, string[]> = {
+      "MS Office": ["word", "excel", "powerpoint", "outlook"],
+      Browsers: ["chrome", "edge", "firefox"],
+      PowerShells: ["powershell", "cmd", "wsl"],
+      "System Tools": ["calculator", "control", "taskmgr"],
+    };
+
+    const appIds = folderMap[selectedFolder] || [];
+    return initialVirtualApps.filter((app) => appIds.includes(app.id));
+  };
+
+  const filteredApps = getFilteredApps();
 
   return (
     <DashboardLayout
