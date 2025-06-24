@@ -89,14 +89,46 @@ const initialDesktops: Desktop[] = [
 ];
 
 export default function VirtualDesktops() {
-  const shdDesktops = allDesktops.filter((desktop) => desktop.type === "SHD");
-  const vdiDesktops = allDesktops.filter((desktop) => desktop.type === "VDI");
+  const [desktops, setDesktops] = useState<Desktop[]>(initialDesktops);
 
-  const DesktopTile = ({ desktop }: { desktop: any }) => (
+  const handleToggleFavorite = (desktopId: string) => {
+    setDesktops((prev) =>
+      prev.map((desktop) =>
+        desktop.id === desktopId
+          ? { ...desktop, isFavorite: !desktop.isFavorite }
+          : desktop,
+      ),
+    );
+  };
+
+  const shdDesktops = desktops.filter((desktop) => desktop.type === "SHD");
+  const vdiDesktops = desktops.filter((desktop) => desktop.type === "VDI");
+
+  const DesktopTile = ({ desktop }: { desktop: Desktop }) => (
     <div className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32">
       {desktop.isActive && (
         <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
       )}
+
+      {/* Favorite Star Button */}
+      <Button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleToggleFavorite(desktop.id);
+        }}
+        variant="ghost"
+        size="sm"
+        className="absolute top-1 left-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+      >
+        <Star
+          className={`w-3 h-3 ${
+            desktop.isFavorite
+              ? "text-yellow-500 fill-current"
+              : "text-gray-400"
+          }`}
+        />
+      </Button>
+
       <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
         <span className="text-xl">{desktop.icon}</span>
       </div>
