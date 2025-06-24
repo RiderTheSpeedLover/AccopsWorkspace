@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
+import { Button } from "@/components/ui/button";
 import {
   Settings,
   Folder,
@@ -8,6 +9,7 @@ import {
   Terminal,
   Calculator,
   Grid3X3,
+  Star,
 } from "lucide-react";
 
 const appFolders = [
