@@ -137,7 +137,7 @@ export default function WebApplications() {
                 >
                   <Star
                     className={`w-3 h-3 ${
-                      app.isFavorite
+                      isFavorite(app.id, "web")
                         ? "text-yellow-500 fill-current"
                         : "text-gray-400"
                     }`}
