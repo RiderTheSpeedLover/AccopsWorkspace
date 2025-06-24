@@ -238,9 +238,14 @@ export default function VirtualApplications() {
               {appFolders.length} categories
             </span>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {appFolders.map((folder) => (
-              <FolderTile key={folder.name} folder={folder} />
+              <FolderTile
+                key={folder.name}
+                folder={folder}
+                isSelected={selectedFolder === folder.name}
+                onSelect={setSelectedFolder}
+              />
             ))}
           </div>
         </section>
