@@ -138,63 +138,25 @@ const initialVirtualApps = [
   },
 ];
 
-const FolderTile = ({ folder }: { folder: any }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const FolderTile = ({
+  folder,
+  isSelected,
+  onSelect,
+}: {
+  folder: any;
+  isSelected: boolean;
+  onSelect: (folderName: string) => void;
+}) => {
   const Icon = folder.icon;
-
-  if (isExpanded) {
-    return (
-      <div className="col-span-full">
-        <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-gray-900 flex items-center gap-2">
-              <Icon className="w-5 h-5 text-blue-600" />
-              {folder.name} ({folder.count})
-              {folder.isActive > 0 && (
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                  {folder.isActive} active
-                </span>
-              )}
-            </h3>
-            <button
-              onClick={() => setIsExpanded(false)}
-              className="text-blue-600 hover:text-blue-700 text-sm font-medium"
-            >
-              Collapse
-            </button>
-          </div>
-          <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            {folder.apps.map((app: string, index: number) => (
-              <div
-                key={app}
-                className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
-              >
-                {index < folder.isActive && (
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                )}
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
-                  <Icon className="w-6 h-6 text-blue-600" />
-                </div>
-                <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
-                  {app}
-                </span>
-                {index < folder.isActive && (
-                  <div className="text-xs text-green-600 mt-1 font-medium">
-                    Active
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
-      onClick={() => setIsExpanded(true)}
-      className="flex flex-col items-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-200 cursor-pointer group h-32"
+      onClick={() => onSelect(folder.name)}
+      className={`flex flex-col items-center p-4 rounded-xl border hover:shadow-lg transition-all duration-200 cursor-pointer group h-32 ${
+        isSelected
+          ? "bg-gradient-to-br from-blue-100 to-blue-200 border-blue-300 shadow-md"
+          : "bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200"
+      }`}
     >
       <div className="relative w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
         <Folder className="w-6 h-6 text-white" />
