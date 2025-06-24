@@ -131,7 +131,7 @@ export default function VirtualDesktops() {
       >
         <Star
           className={`w-3 h-3 ${
-            desktop.isFavorite
+            isFavorite(desktop.id, "desktop")
               ? "text-yellow-500 fill-current"
               : "text-gray-400"
           }`}
