@@ -146,18 +146,37 @@ const desktops = [
 ];
 
 export default function Dashboard() {
-  const [apps, setApps] = useState(allApps);
+  const { favoriteApps, favoriteDesktops, toggleFavorite, isFavorite } =
+    useFavorites();
 
   const handleToggleFavorite = (appId: string) => {
-    setApps((prev) =>
-      prev.map((app) =>
-        app.id === appId ? { ...app, isFavorite: !app.isFavorite } : app,
-      ),
-    );
+    const app = allApps.find((a) => a.id === appId);
+    if (app) {
+      toggleFavorite({
+        id: app.id,
+        name: app.name,
+        icon: app.icon,
+        type: "application",
+        isActive: app.isActive,
+        category: app.category,
+      });
+    }
   };
 
-  const favoriteApps = apps.filter((app) => app.isFavorite);
-  const recentApps = apps.filter((app) => app.isActive);
+  const handleToggleDesktopFavorite = (desktopId: string) => {
+    const desktop = desktops.find((d) => d.id === desktopId);
+    if (desktop) {
+      toggleFavorite({
+        id: desktop.id,
+        name: desktop.name,
+        icon: desktop.icon,
+        type: "desktop",
+        isActive: desktop.isActive,
+      });
+    }
+  };
+
+  const recentApps = allApps.filter((app) => app.isActive);
 
   return (
     <DashboardLayout activeItem="All" title="Applications" icon={Grid3X3}>
