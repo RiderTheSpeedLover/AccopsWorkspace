@@ -90,20 +90,28 @@ const initialDesktops: Desktop[] = [
 ];
 
 export default function VirtualDesktops() {
-  const [desktops, setDesktops] = useState<Desktop[]>(initialDesktops);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleToggleFavorite = (desktopId: string) => {
-    setDesktops((prev) =>
-      prev.map((desktop) =>
-        desktop.id === desktopId
-          ? { ...desktop, isFavorite: !desktop.isFavorite }
-          : desktop,
-      ),
-    );
+    const desktop = initialDesktops.find((d) => d.id === desktopId);
+    if (desktop) {
+      toggleFavorite({
+        id: desktop.id,
+        name: desktop.name,
+        icon: desktop.icon,
+        type: "desktop",
+        isActive: desktop.isActive,
+        location: desktop.location,
+      });
+    }
   };
 
-  const shdDesktops = desktops.filter((desktop) => desktop.type === "SHD");
-  const vdiDesktops = desktops.filter((desktop) => desktop.type === "VDI");
+  const shdDesktops = initialDesktops.filter(
+    (desktop) => desktop.type === "SHD",
+  );
+  const vdiDesktops = initialDesktops.filter(
+    (desktop) => desktop.type === "VDI",
+  );
 
   const DesktopTile = ({ desktop }: { desktop: Desktop }) => (
     <div className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32">
