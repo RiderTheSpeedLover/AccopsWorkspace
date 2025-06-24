@@ -486,7 +486,14 @@ export default function Dashboard() {
                   >
                     <Star
                       className={`w-3 h-3 ${
-                        isFavorite(app.id, "application")
+                        isFavorite(
+                          app.id,
+                          app.category === "Web"
+                            ? "web"
+                            : app.category === "Network"
+                              ? "network"
+                              : "application",
+                        )
                           ? "text-yellow-500 fill-current"
                           : "text-gray-400"
                       }`}
