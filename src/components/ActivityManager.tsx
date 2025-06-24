@@ -24,7 +24,6 @@ interface ActiveApp {
   icon: any;
   status: "running" | "suspended";
   startTime: string;
-  memoryUsage: string;
 }
 
 interface ActivityManagerProps {
@@ -40,7 +39,6 @@ export function ActivityManager({ isOpen, onClose }: ActivityManagerProps) {
       icon: Chrome,
       status: "running",
       startTime: "10:32 AM",
-      memoryUsage: "245 MB",
     },
     {
       id: "excel-1",
@@ -48,7 +46,6 @@ export function ActivityManager({ isOpen, onClose }: ActivityManagerProps) {
       icon: FileText,
       status: "running",
       startTime: "09:15 AM",
-      memoryUsage: "128 MB",
     },
     {
       id: "calc-1",
@@ -56,7 +53,6 @@ export function ActivityManager({ isOpen, onClose }: ActivityManagerProps) {
       icon: Calculator,
       status: "suspended",
       startTime: "08:45 AM",
-      memoryUsage: "12 MB",
     },
     {
       id: "settings-1",
@@ -64,7 +60,6 @@ export function ActivityManager({ isOpen, onClose }: ActivityManagerProps) {
       icon: Settings,
       status: "running",
       startTime: "11:20 AM",
-      memoryUsage: "56 MB",
     },
   ]);
 
@@ -127,7 +122,7 @@ export function ActivityManager({ isOpen, onClose }: ActivityManagerProps) {
                           {app.name}
                         </p>
                         <p className="text-xs text-gray-500">
-                          Started: {app.startTime} • Memory: {app.memoryUsage}
+                          Started: {app.startTime}
                         </p>
                       </div>
                       <div className="flex gap-1">
@@ -179,7 +174,7 @@ export function ActivityManager({ isOpen, onClose }: ActivityManagerProps) {
                           {app.name}
                         </p>
                         <p className="text-xs text-gray-500">
-                          Started: {app.startTime} • Memory: {app.memoryUsage}
+                          Started: {app.startTime}
                         </p>
                       </div>
                       <div className="flex gap-1">
