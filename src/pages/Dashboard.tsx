@@ -156,12 +156,7 @@ export default function Dashboard() {
   };
 
   const favoriteApps = apps.filter((app) => app.isFavorite);
-  const recentApps = apps
-    .filter((app) => app.lastUsed)
-    .sort((a, b) => {
-      // Simple sort by recency (you'd implement proper date sorting in production)
-      return (a.lastUsed || "").localeCompare(b.lastUsed || "");
-    });
+  const recentApps = apps.filter((app) => app.isActive);
 
   return (
     <DashboardLayout activeItem="All" title="Applications" icon={Grid3X3}>
