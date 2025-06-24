@@ -81,14 +81,20 @@ const initialWebApps: WebApp[] = [
 ];
 
 export default function WebApplications() {
-  const [webApps, setWebApps] = useState<WebApp[]>(initialWebApps);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleToggleFavorite = (appId: string) => {
-    setWebApps((prev) =>
-      prev.map((app) =>
-        app.id === appId ? { ...app, isFavorite: !app.isFavorite } : app,
-      ),
-    );
+    const app = initialWebApps.find((a) => a.id === appId);
+    if (app) {
+      toggleFavorite({
+        id: app.id,
+        name: app.name,
+        icon: app.icon,
+        type: "web",
+        isActive: app.isActive,
+        bgColor: app.bgColor,
+      });
+    }
   };
 
   return (
