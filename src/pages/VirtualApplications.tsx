@@ -214,6 +214,16 @@ const FolderTile = ({ folder }: { folder: any }) => {
 };
 
 export default function VirtualApplications() {
+  const [virtualApps, setVirtualApps] = useState(initialVirtualApps);
+
+  const handleToggleFavorite = (appId: string) => {
+    setVirtualApps((prev) =>
+      prev.map((app) =>
+        app.id === appId ? { ...app, isFavorite: !app.isFavorite } : app,
+      ),
+    );
+  };
+
   return (
     <DashboardLayout
       activeItem="Virtual Applications"
@@ -248,11 +258,11 @@ export default function VirtualApplications() {
             </h2>
             <div className="flex-1 h-px bg-gray-200"></div>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-              {allVirtualApps.length} apps
+              {virtualApps.length} apps
             </span>
           </div>
           <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            {allVirtualApps.map((app) => {
+            {virtualApps.map((app) => {
               const Icon = app.icon;
               return (
                 <div
@@ -262,6 +272,26 @@ export default function VirtualApplications() {
                   {app.isActive && (
                     <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   )}
+
+                  {/* Favorite Star Button */}
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleToggleFavorite(app.id);
+                    }}
+                    variant="ghost"
+                    size="sm"
+                    className="absolute top-1 left-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <Star
+                      className={`w-3 h-3 ${
+                        app.isFavorite
+                          ? "text-yellow-500 fill-current"
+                          : "text-gray-400"
+                      }`}
+                    />
+                  </Button>
+
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>
