@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ThemeSelector } from "@/components/ThemeSelector";
+import { ActivityManager } from "@/components/ActivityManager";
 import { useTheme } from "@/hooks/use-theme";
 import {
   Star,
@@ -26,6 +27,7 @@ import {
   LucideIcon,
   Palette,
   LogOut,
+  Activity,
 } from "lucide-react";
 
 const sidebarItems = [
@@ -59,6 +61,7 @@ export function DashboardLayout({
 }: DashboardLayoutProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [showThemeSelector, setShowThemeSelector] = useState(false);
+  const [showActivityManager, setShowActivityManager] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { currentTheme } = useTheme();
@@ -211,6 +214,13 @@ export function DashboardLayout({
                     Preferences
                   </DropdownMenuItem>
                   <DropdownMenuItem
+                    onClick={() => setShowActivityManager(true)}
+                    className="flex items-center gap-2"
+                  >
+                    <Activity className="w-4 h-4" />
+                    Activity Manager
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
                     onClick={() => setShowThemeSelector(true)}
                     className="flex items-center gap-2"
                   >
@@ -253,6 +263,10 @@ export function DashboardLayout({
       <ThemeSelector
         isOpen={showThemeSelector}
         onClose={() => setShowThemeSelector(false)}
+      />
+      <ActivityManager
+        isOpen={showActivityManager}
+        onClose={() => setShowActivityManager(false)}
       />
     </div>
   );
