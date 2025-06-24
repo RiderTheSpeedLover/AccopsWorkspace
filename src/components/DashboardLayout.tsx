@@ -36,7 +36,7 @@ const sidebarItems = [
   { icon: Star, label: "Favorites", path: "/favorites" },
   {
     icon: Settings,
-    label: "Virtual Applications",
+    label: "Applications",
     path: "/virtual-applications",
   },
   { icon: Monitor, label: "Virtual Desktops", path: "/virtual-desktops" },
