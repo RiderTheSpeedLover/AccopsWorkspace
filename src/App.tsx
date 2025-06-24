@@ -9,6 +9,7 @@ import TwoStepVerification from "./pages/TwoStepVerification";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import VirtualApplications from "./pages/VirtualApplications";
+import VirtualDesktops from "./pages/VirtualDesktops";
 import WebApplications from "./pages/WebApplications";
 import NetworkApplications from "./pages/NetworkApplications";
 import NotFound from "./pages/NotFound";
@@ -34,7 +35,7 @@ const App = () => (
               path="/virtual-applications"
               element={<VirtualApplications />}
             />
-            <Route path="/virtual-desktops" element={<Dashboard />} />
+            <Route path="/virtual-desktops" element={<VirtualDesktops />} />
             <Route path="/web-applications" element={<WebApplications />} />
             <Route
               path="/network-applications"
