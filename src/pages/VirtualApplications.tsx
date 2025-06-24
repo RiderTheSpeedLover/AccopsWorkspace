@@ -7,6 +7,7 @@ import {
   FileText,
   Terminal,
   Calculator,
+  Grid3X3,
 } from "lucide-react";
 
 const appFolders = [
@@ -38,6 +39,22 @@ const appFolders = [
     isActive: 1,
     apps: ["Calculator", "Control Panel", "Task Manager"],
   },
+];
+
+const allVirtualApps = [
+  { id: "word", name: "Microsoft Word", icon: FileText, isActive: true },
+  { id: "excel", name: "Microsoft Excel", icon: FileText, isActive: false },
+  { id: "powerpoint", name: "PowerPoint", icon: FileText, isActive: false },
+  { id: "outlook", name: "Microsoft Outlook", icon: FileText, isActive: false },
+  { id: "chrome", name: "Google Chrome", icon: Chrome, isActive: true },
+  { id: "edge", name: "Microsoft Edge", icon: Chrome, isActive: false },
+  { id: "firefox", name: "Mozilla Firefox", icon: Chrome, isActive: false },
+  { id: "powershell", name: "PowerShell", icon: Terminal, isActive: false },
+  { id: "cmd", name: "Command Prompt", icon: Terminal, isActive: false },
+  { id: "wsl", name: "WSL Terminal", icon: Terminal, isActive: false },
+  { id: "calculator", name: "Calculator", icon: Calculator, isActive: true },
+  { id: "control", name: "Control Panel", icon: Settings, isActive: false },
+  { id: "taskmgr", name: "Task Manager", icon: Settings, isActive: false },
 ];
 
 const FolderTile = ({ folder }: { folder: any }) => {
@@ -139,6 +156,46 @@ export default function VirtualApplications() {
             {appFolders.map((folder) => (
               <FolderTile key={folder.name} folder={folder} />
             ))}
+          </div>
+        </section>
+
+        {/* All Virtual Applications */}
+        <section>
+          <div className="flex items-center gap-3 mb-6">
+            <Grid3X3 className="w-5 h-5 theme-primary" />
+            <h2 className="text-xl font-semibold text-gray-900">
+              All Virtual Applications
+            </h2>
+            <div className="flex-1 h-px bg-gray-200"></div>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+              {allVirtualApps.length} apps
+            </span>
+          </div>
+          <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+            {allVirtualApps.map((app) => {
+              const Icon = app.icon;
+              return (
+                <div
+                  key={app.id}
+                  className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
+                >
+                  {app.isActive && (
+                    <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  )}
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
+                    <Icon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
+                    {app.name}
+                  </span>
+                  {app.isActive && (
+                    <div className="text-xs text-green-600 mt-1 font-medium">
+                      Active
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>
