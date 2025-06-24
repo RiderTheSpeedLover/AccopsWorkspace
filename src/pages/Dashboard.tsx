@@ -147,6 +147,8 @@ const allApps: App[] = [
 const desktops = [
   { id: "desktop1", name: "SHD2K22", icon: "💻", isActive: true },
   { id: "desktop2", name: "VDIO188.ACCOPS.COM", icon: "✓", isActive: false },
+  { id: "desktop3", name: "SHD-DEV01", icon: "🖥️", isActive: false },
+  { id: "desktop4", name: "VDI-PROD02", icon: "🖥️", isActive: false },
 ];
 
 const AppTile = ({
@@ -310,7 +312,7 @@ export default function Dashboard() {
         <TabsList className="grid w-full grid-cols-2 mb-8">
           <TabsTrigger value="all" className="flex items-center gap-2">
             <Grid3X3 className="w-4 h-4" />
-            All Applications
+            All
           </TabsTrigger>
           <TabsTrigger value="favorites" className="flex items-center gap-2">
             <Star className="w-4 h-4" />
@@ -329,11 +331,11 @@ export default function Dashboard() {
                 {desktops.length} available
               </span>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
               {desktops.map((desktop) => (
                 <div
                   key={desktop.id}
-                  className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative"
+                  className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
                 >
                   {desktop.isActive && (
                     <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -354,51 +356,40 @@ export default function Dashboard() {
             </div>
           </section>
 
-          {/* Recent Applications */}
-          {recentApps.length > 0 && (
-            <section>
-              <div className="flex items-center gap-3 mb-6">
-                <Clock className="w-5 h-5 theme-primary" />
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Recently Used
-                </h2>
-                <div className="flex-1 h-px bg-gray-200"></div>
-                <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                  {recentApps.length} apps
-                </span>
-              </div>
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-4">
-                {recentApps.map((app) => (
-                  <AppTile
-                    key={app.id}
-                    app={app}
-                    onToggleFavorite={handleToggleFavorite}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Application Folders */}
+          {/* All Applications Grid */}
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <Folder className="w-5 h-5 theme-primary" />
+              <Grid3X3 className="w-5 h-5 theme-primary" />
               <h2 className="text-xl font-semibold text-gray-900">
-                Application Categories
+                Applications
               </h2>
               <div className="flex-1 h-px bg-gray-200"></div>
+              <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                {apps.length} apps
+              </span>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {Object.entries(appsByCategory).map(
-                ([category, categoryApps]) => (
-                  <FolderTile
-                    key={category}
-                    name={category}
-                    apps={categoryApps}
-                    onToggleFavorite={handleToggleFavorite}
-                  />
-                ),
-              )}
+            <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+              {apps.map((app) => (
+                <div
+                  key={app.id}
+                  className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
+                >
+                  {app.isActive && (
+                    <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  )}
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
+                    <app.icon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
+                    {app.name}
+                  </span>
+                  {app.isActive && (
+                    <div className="text-xs text-green-600 mt-1 font-medium">
+                      Active
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </section>
         </TabsContent>
