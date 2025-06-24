@@ -28,10 +28,12 @@ import {
   Palette,
   LogOut,
   Activity,
+  Grid3X3,
 } from "lucide-react";
 
 const sidebarItems = [
-  { icon: Star, label: "Favorites", path: "/dashboard" },
+  { icon: Grid3X3, label: "All", path: "/dashboard" },
+  { icon: Star, label: "Favorites", path: "/favorites" },
   {
     icon: Settings,
     label: "Virtual Applications",
