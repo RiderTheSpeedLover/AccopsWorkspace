@@ -122,6 +122,16 @@ export const themes: Record<string, Theme> = {
     gradient: "from-slate-400 to-slate-500",
     description: "Clean and minimal",
   },
+  whitesmoke: {
+    name: "whitesmoke",
+    label: "White Smoke",
+    primary: "156 163 175", // gray-400
+    primaryDark: "107 114 128", // gray-500
+    primaryLight: "209 213 219", // gray-300
+    accent: "249 250 251", // gray-50 - white smoke
+    gradient: "from-gray-400 to-gray-500",
+    description: "Ultra light and airy",
+  },
   cyan: {
     name: "cyan",
     label: "Electric Cyan",
