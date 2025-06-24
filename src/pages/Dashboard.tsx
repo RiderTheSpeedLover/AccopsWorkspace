@@ -188,7 +188,7 @@ export default function Dashboard() {
           </TabsTrigger>
           <TabsTrigger value="favorites" className="flex items-center gap-2">
             <Star className="w-4 h-4" />
-            Favorites ({favoriteApps.length})
+            Favorites ({favoriteApps.length + favoriteDesktops.length})
           </TabsTrigger>
         </TabsList>
 
