@@ -268,7 +268,7 @@ const desktops = [
   { id: "desktop1", name: "SHD2K22", icon: "💻", isActive: true },
   { id: "desktop2", name: "VDIO188.ACCOPS.COM", icon: "✓", isActive: false },
   { id: "desktop3", name: "SHD-DEV01", icon: "🖥️", isActive: false },
-  { id: "desktop4", name: "VDI-PROD02", icon: "🖥️", isActive: false },
+  { id: "desktop4", name: "VDI-PROD02", icon: "🖥��", isActive: false },
   { id: "desktop5", name: "SHD-TEST03", icon: "💻", isActive: false },
   { id: "desktop6", name: "VDI-BACKUP01", icon: "🖥️", isActive: false },
   { id: "desktop7", name: "SHD-UAT04", icon: "💻", isActive: false },
@@ -361,14 +361,7 @@ export default function Dashboard() {
                     >
                       <Star
                         className={`w-3 h-3 ${
-                          isFavorite(
-                            app.id,
-                            app.category === "Web"
-                              ? "web"
-                              : app.category === "Network"
-                                ? "network"
-                                : "application",
-                          )
+                          isFavorite(app.id, "application")
                             ? "text-yellow-500 fill-current"
                             : "text-gray-400"
                         }`}
