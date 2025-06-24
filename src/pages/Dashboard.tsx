@@ -13,6 +13,9 @@ import {
   Terminal,
   Monitor,
   Clock,
+  Globe,
+  Network,
+  Wifi,
 } from "lucide-react";
 
 interface App {
