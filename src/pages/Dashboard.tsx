@@ -267,7 +267,7 @@ const allCombinedApps: App[] = [...allApps, ...webApps, ...networkApps];
 const desktops = [
   { id: "desktop1", name: "SHD2K22", icon: "💻", isActive: true },
   { id: "desktop2", name: "VDIO188.ACCOPS.COM", icon: "✓", isActive: false },
-  { id: "desktop3", name: "SHD-DEV01", icon: "🖥️", isActive: false },
+  { id: "desktop3", name: "SHD-DEV01", icon: "���️", isActive: false },
   { id: "desktop4", name: "VDI-PROD02", icon: "🖥️", isActive: false },
   { id: "desktop5", name: "SHD-TEST03", icon: "💻", isActive: false },
   { id: "desktop6", name: "VDI-BACKUP01", icon: "🖥️", isActive: false },
@@ -370,7 +370,11 @@ export default function Dashboard() {
                     </Button>
 
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
-                      <app.icon className="w-6 h-6 text-blue-600" />
+                      {typeof app.icon === "string" ? (
+                        <span className="text-xl">{app.icon}</span>
+                      ) : (
+                        <app.icon className="w-6 h-6 text-blue-600" />
+                      )}
                     </div>
                     <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
                       {app.name}
