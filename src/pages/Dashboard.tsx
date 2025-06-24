@@ -13,6 +13,7 @@ import {
   Monitor,
   Clock,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface App {
   id: string;
@@ -204,6 +205,26 @@ export default function Dashboard() {
                     {app.isActive && (
                       <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     )}
+
+                    {/* Favorite Star Button */}
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleToggleFavorite(app.id);
+                      }}
+                      variant="ghost"
+                      size="sm"
+                      className="absolute top-1 left-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <Star
+                        className={`w-3 h-3 ${
+                          app.isFavorite
+                            ? "text-yellow-500 fill-current"
+                            : "text-gray-400"
+                        }`}
+                      />
+                    </Button>
+
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
                       <app.icon className="w-6 h-6 text-blue-600" />
                     </div>
@@ -282,6 +303,26 @@ export default function Dashboard() {
                   {app.isActive && (
                     <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   )}
+
+                  {/* Favorite Star Button */}
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleToggleFavorite(app.id);
+                    }}
+                    variant="ghost"
+                    size="sm"
+                    className="absolute top-1 left-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <Star
+                      className={`w-3 h-3 ${
+                        app.isFavorite
+                          ? "text-yellow-500 fill-current"
+                          : "text-gray-400"
+                      }`}
+                    />
+                  </Button>
+
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
                     <app.icon className="w-6 h-6 text-blue-600" />
                   </div>
@@ -321,6 +362,20 @@ export default function Dashboard() {
                     {app.isActive && (
                       <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     )}
+
+                    {/* Favorite Star Button - Always filled for favorites tab */}
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleToggleFavorite(app.id);
+                      }}
+                      variant="ghost"
+                      size="sm"
+                      className="absolute top-1 left-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                    </Button>
+
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
                       <app.icon className="w-6 h-6 text-blue-600" />
                     </div>
