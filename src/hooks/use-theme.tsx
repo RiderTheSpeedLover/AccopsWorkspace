@@ -162,6 +162,16 @@ export const themes: Record<string, Theme> = {
     gradient: "from-lime-500 to-lime-600",
     description: "Fresh and energetic",
   },
+  lightgray: {
+    name: "lightgray",
+    label: "Light Gray",
+    primary: "240 240 240", // #f0f0f0
+    primaryDark: "224 224 224", // darker version
+    primaryLight: "248 248 248", // lighter version
+    accent: "250 250 250", // very light
+    gradient: "from-gray-200 to-gray-300",
+    description: "Clean and minimal",
+  },
 };
 
 type ThemeContextType = {
