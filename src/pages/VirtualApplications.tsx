@@ -250,20 +250,22 @@ export default function VirtualApplications() {
           </div>
         </section>
 
-        {/* All Virtual Applications */}
+        {/* Virtual Applications */}
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Grid3X3 className="w-5 h-5 theme-primary" />
             <h2 className="text-xl font-semibold text-gray-900">
-              All Virtual Applications
+              {selectedFolder === "All"
+                ? "All Virtual Applications"
+                : `${selectedFolder} Applications`}
             </h2>
             <div className="flex-1 h-px bg-gray-200"></div>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-              {initialVirtualApps.length} apps
+              {filteredApps.length} apps
             </span>
           </div>
           <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            {initialVirtualApps.map((app) => {
+            {filteredApps.map((app) => {
               const Icon = app.icon;
               return (
                 <div
