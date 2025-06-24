@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import { useFavorites } from "@/contexts/FavoritesContext";
 import { Network, Monitor, Wifi, Star } from "lucide-react";
 
 interface NetworkApp {
