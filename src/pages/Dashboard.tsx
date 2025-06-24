@@ -221,11 +221,6 @@ export default function Dashboard() {
                     <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
                       {app.name}
                     </span>
-                    {app.lastUsed && (
-                      <span className="text-xs text-gray-500 mt-1">
-                        {app.lastUsed}
-                      </span>
-                    )}
                     {app.isActive && (
                       <div className="text-xs text-green-600 mt-1 font-medium">
                         Active
