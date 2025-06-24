@@ -15,6 +15,13 @@ import {
 
 const appFolders = [
   {
+    name: "All",
+    icon: Grid3X3,
+    count: 13,
+    isActive: 3,
+    apps: [],
+  },
+  {
     name: "MS Office",
     icon: FileText,
     count: 4,
