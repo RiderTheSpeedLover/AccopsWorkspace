@@ -113,40 +113,44 @@ export function DashboardLayout({
         {/* Sidebar Footer */}
         <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
           <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-            <div className="flex items-center gap-2 text-sm">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-green-700 font-medium">Turbo Mode: ON</span>
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-green-700 font-medium">
+                  Turbo Mode: ON
+                </span>
+              </div>
+              <div className="flex gap-1">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="w-6 h-6 hover:bg-green-100 rounded-md"
+                  title="Information"
+                >
+                  <Info className="w-3 h-3 text-green-600" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="w-6 h-6 hover:bg-green-100 rounded-md"
+                  title="Calendar"
+                >
+                  <Calendar className="w-3 h-3 text-green-600" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="w-6 h-6 hover:bg-green-100 rounded-md"
+                  title="Help"
+                >
+                  <HelpCircle className="w-3 h-3 text-green-600" />
+                </Button>
+              </div>
             </div>
             <p className="text-xs text-green-600 mt-1">Performance optimized</p>
           </div>
-          <div className="flex justify-between items-end">
+          <div className="flex justify-center">
             <span className="text-xs text-gray-500 font-mono">v7.0.1.1088</span>
-            <div className="flex gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="w-7 h-7 hover:bg-gray-200 rounded-md"
-                title="Information"
-              >
-                <Info className="w-3 h-3 text-gray-400" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="w-7 h-7 hover:bg-gray-200 rounded-md"
-                title="Calendar"
-              >
-                <Calendar className="w-3 h-3 text-gray-400" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="w-7 h-7 hover:bg-gray-200 rounded-md"
-                title="Help"
-              >
-                <HelpCircle className="w-3 h-3 text-gray-400" />
-              </Button>
-            </div>
           </div>
         </div>
       </div>
