@@ -207,6 +207,14 @@ const webApps: App[] = [
     isActive: false,
     isFavorite: false,
   },
+  {
+    id: "teams",
+    name: "Microsoft Teams",
+    icon: Globe,
+    category: "Web",
+    isActive: true,
+    isFavorite: false,
+  },
 ];
 
 // Network Applications
