@@ -11,6 +11,7 @@ import {
   Calculator,
   Grid3X3,
   Star,
+  Globe,
 } from "lucide-react";
 
 const appFolders = [
