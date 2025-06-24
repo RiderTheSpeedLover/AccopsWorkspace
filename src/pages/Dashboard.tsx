@@ -141,11 +141,138 @@ const allApps: App[] = [
   },
 ];
 
+// Web Applications
+const webApps: App[] = [
+  {
+    id: "accopsai",
+    name: "AccopsAI",
+    icon: Globe,
+    category: "Web",
+    isActive: true,
+    isFavorite: false,
+  },
+  {
+    id: "ars",
+    name: "ARS",
+    icon: Globe,
+    category: "Web",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "aspl",
+    name: "ASPL",
+    icon: Globe,
+    category: "Web",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "crm",
+    name: "CRM",
+    icon: Globe,
+    category: "Web",
+    isActive: true,
+    isFavorite: false,
+  },
+  {
+    id: "git",
+    name: "GIT",
+    icon: Globe,
+    category: "Web",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "jenkins",
+    name: "Jenkins",
+    icon: Globe,
+    category: "Web",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "portal",
+    name: "Portal",
+    icon: Globe,
+    category: "Web",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "support",
+    name: "Support",
+    icon: Globe,
+    category: "Web",
+    isActive: false,
+    isFavorite: false,
+  },
+];
+
+// Network Applications
+const networkApps: App[] = [
+  {
+    id: "aspl-turbo",
+    name: "ASPL-Turbo",
+    icon: Network,
+    category: "Network",
+    isActive: true,
+    isFavorite: false,
+  },
+  {
+    id: "ars-oracle",
+    name: "ARS-ORACLE",
+    icon: Network,
+    category: "Network",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "clientdev",
+    name: "ClientDevMachines",
+    icon: Network,
+    category: "Network",
+    isActive: true,
+    isFavorite: false,
+  },
+  {
+    id: "git-cloud",
+    name: "GIT-Cloud",
+    icon: Network,
+    category: "Network",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "hsqa-virtual",
+    name: "HSQA-VIRTUAL",
+    icon: Network,
+    category: "Network",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "prod-server",
+    name: "Production-Server",
+    icon: Network,
+    category: "Network",
+    isActive: false,
+    isFavorite: false,
+  },
+];
+
+// Combine all apps from all tabs
+const allCombinedApps: App[] = [...allApps, ...webApps, ...networkApps];
+
 const desktops = [
   { id: "desktop1", name: "SHD2K22", icon: "💻", isActive: true },
   { id: "desktop2", name: "VDIO188.ACCOPS.COM", icon: "✓", isActive: false },
   { id: "desktop3", name: "SHD-DEV01", icon: "🖥️", isActive: false },
   { id: "desktop4", name: "VDI-PROD02", icon: "🖥️", isActive: false },
+  { id: "desktop5", name: "SHD-TEST03", icon: "💻", isActive: false },
+  { id: "desktop6", name: "VDI-BACKUP01", icon: "🖥️", isActive: false },
+  { id: "desktop7", name: "SHD-UAT04", icon: "💻", isActive: false },
+  { id: "desktop8", name: "VDI-DR01", icon: "🖥️", isActive: false },
 ];
 
 export default function Dashboard() {
