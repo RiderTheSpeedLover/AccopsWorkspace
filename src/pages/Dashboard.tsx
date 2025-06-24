@@ -41,7 +41,6 @@ const allApps: App[] = [
     category: "MS Office",
     isActive: true,
     isFavorite: false,
-    lastUsed: "2 hours ago",
   },
   {
     id: "powerpoint",
@@ -68,7 +67,6 @@ const allApps: App[] = [
     category: "Browsers",
     isActive: true,
     isFavorite: false,
-    lastUsed: "5 minutes ago",
   },
   {
     id: "edge",
@@ -121,7 +119,6 @@ const allApps: App[] = [
     category: "System Tools",
     isActive: true,
     isFavorite: false,
-    lastUsed: "1 hour ago",
   },
   {
     id: "control",
