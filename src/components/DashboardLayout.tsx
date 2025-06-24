@@ -216,14 +216,20 @@ export function DashboardLayout({
                     Preferences
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    onClick={() => setShowActivityManager(true)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowActivityManager(true);
+                    }}
                     className="flex items-center gap-2"
                   >
                     <Activity className="w-4 h-4" />
                     Activity Manager
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    onClick={() => setShowThemeSelector(true)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowThemeSelector(true);
+                    }}
                     className="flex items-center gap-2"
                   >
                     <Palette className="w-4 h-4" />
