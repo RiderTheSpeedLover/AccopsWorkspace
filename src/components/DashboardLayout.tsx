@@ -40,12 +40,6 @@ const sidebarItems = [
     path: "/virtual-applications",
   },
   { icon: Monitor, label: "Virtual Desktops", path: "/virtual-desktops" },
-  { icon: Globe, label: "Web Applications", path: "/web-applications" },
-  {
-    icon: Network,
-    label: "Network Applications",
-    path: "/network-applications",
-  },
 ];
 
 interface DashboardLayoutProps {
