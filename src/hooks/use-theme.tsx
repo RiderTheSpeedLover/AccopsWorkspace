@@ -132,6 +132,16 @@ export const themes: Record<string, Theme> = {
     gradient: "from-gray-400 to-gray-500",
     description: "Ultra light and airy",
   },
+  platinum: {
+    name: "platinum",
+    label: "Platinum Grey",
+    primary: "222 223 226", // #dedfe2
+    primaryDark: "190 191 194", // darker version
+    primaryLight: "240 240 242", // lighter version
+    accent: "248 249 250", // very light
+    gradient: "from-gray-300 to-gray-400",
+    description: "Professional platinum",
+  },
   cyan: {
     name: "cyan",
     label: "Electric Cyan",
