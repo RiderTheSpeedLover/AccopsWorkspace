@@ -26,7 +26,11 @@ export default function Favorites() {
               </span>
             </div>
             <div className="grid grid-cols-3 lg:grid-cols-6 gap-6">
-              {/* Favorite apps would be rendered here */}
+              {favoriteApps.map((app) => (
+                <div key={app.id} className="app-tile">
+                  {app.name}
+                </div>
+              ))}
             </div>
           </section>
         ) : (
