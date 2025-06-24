@@ -21,7 +21,6 @@ interface App {
   category: string;
   isActive: boolean;
   isFavorite: boolean;
-  lastUsed?: string;
 }
 
 const allApps: App[] = [
