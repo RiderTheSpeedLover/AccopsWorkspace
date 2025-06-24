@@ -112,11 +112,11 @@ export default function WebApplications() {
             </h2>
             <div className="flex-1 h-px bg-gray-200"></div>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-              {webApps.length} apps
+              {initialWebApps.length} apps
             </span>
           </div>
           <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            {webApps.map((app) => (
+            {initialWebApps.map((app) => (
               <div
                 key={app.id}
                 className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
