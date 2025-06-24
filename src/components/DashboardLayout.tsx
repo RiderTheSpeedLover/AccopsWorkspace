@@ -39,7 +39,7 @@ const sidebarItems = [
     label: "Applications",
     path: "/virtual-applications",
   },
-  { icon: Monitor, label: "Virtual Desktops", path: "/virtual-desktops" },
+  { icon: Monitor, label: "Desktops", path: "/virtual-desktops" },
 ];
 
 interface DashboardLayoutProps {
