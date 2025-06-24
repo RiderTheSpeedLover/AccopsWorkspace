@@ -146,6 +146,41 @@ const initialVirtualApps = [
   },
 ];
 
+const webAppsData = [
+  {
+    id: "accopsai",
+    name: "AccopsAI",
+    icon: "🤖",
+    isActive: true,
+    isFavorite: false,
+  },
+  { id: "ars", name: "ARS", icon: "🔄", isActive: false, isFavorite: false },
+  { id: "aspl", name: "ASPL", icon: "🔄", isActive: false, isFavorite: false },
+  { id: "crm", name: "CRM", icon: "🔄", isActive: true, isFavorite: false },
+  { id: "git", name: "GIT", icon: "🔄", isActive: false, isFavorite: false },
+  {
+    id: "jenkins",
+    name: "Jenkins",
+    icon: "🔄",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "portal",
+    name: "Portal",
+    icon: "🔄",
+    isActive: false,
+    isFavorite: false,
+  },
+  {
+    id: "support",
+    name: "Support",
+    icon: "🔄",
+    isActive: false,
+    isFavorite: false,
+  },
+];
+
 const FolderTile = ({
   folder,
   isSelected,
