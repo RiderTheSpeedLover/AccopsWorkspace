@@ -97,11 +97,11 @@ export default function NetworkApplications() {
             </h2>
             <div className="flex-1 h-px bg-gray-200"></div>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-              {networkApps.length} apps
+              {initialNetworkApps.length} apps
             </span>
           </div>
           <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            {networkApps.map((app) => {
+            {initialNetworkApps.map((app) => {
               const Icon = app.icon;
               return (
                 <div
