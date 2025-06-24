@@ -100,7 +100,7 @@ export default function Favorites() {
                       <Button
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Handle unfavorite action
+                          toggleFavorite(desktop);
                         }}
                         variant="ghost"
                         size="sm"
