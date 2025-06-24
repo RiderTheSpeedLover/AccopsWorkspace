@@ -118,18 +118,14 @@ export function DashboardLayout({
 
         {/* Sidebar Footer */}
         <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
-          <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
             <div className="flex items-center gap-2 text-sm">
-              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-red-700 font-medium">
-                Turbo Mode Failed
-              </span>
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-green-700 font-medium">Turbo Mode: ON</span>
             </div>
-            <p className="text-xs text-red-600 mt-1">
-              Connection issue detected
-            </p>
+            <p className="text-xs text-green-600 mt-1">Performance optimized</p>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-end">
             <span className="text-xs text-gray-500 font-mono">v7.0.1.1088</span>
             <div className="flex gap-1">
               <Button
