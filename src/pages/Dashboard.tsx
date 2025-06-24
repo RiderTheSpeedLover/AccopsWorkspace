@@ -5,14 +5,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Star,
   Grid3X3,
-  Heart,
-  HeartOff,
   Chrome,
   FileText,
   Calculator,
   Settings,
   Terminal,
-  Folder,
   Monitor,
   Clock,
 } from "lucide-react";
@@ -150,131 +147,6 @@ const desktops = [
   { id: "desktop3", name: "SHD-DEV01", icon: "🖥️", isActive: false },
   { id: "desktop4", name: "VDI-PROD02", icon: "🖥️", isActive: false },
 ];
-
-const AppTile = ({
-  app,
-  onToggleFavorite,
-  showFavoriteButton = true,
-}: {
-  app: App;
-  onToggleFavorite: (appId: string) => void;
-  showFavoriteButton?: boolean;
-}) => {
-  const Icon = app.icon;
-
-  return (
-    <div className="relative flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border">
-      {/* Active Status Indicator */}
-      {app.isActive && (
-        <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-      )}
-
-      {/* Favorite Button */}
-      {showFavoriteButton && (
-        <Button
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorite(app.id);
-          }}
-          variant="ghost"
-          size="sm"
-          className="absolute top-1 left-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-          {app.isFavorite ? (
-            <Heart className="w-3 h-3 text-red-500 fill-current" />
-          ) : (
-            <HeartOff className="w-3 h-3 text-gray-400" />
-          )}
-        </Button>
-      )}
-
-      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
-        <Icon className="w-6 h-6 text-blue-600" />
-      </div>
-
-      <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
-        {app.name}
-      </span>
-
-      {app.lastUsed && (
-        <span className="text-xs text-gray-500 mt-1">{app.lastUsed}</span>
-      )}
-
-      {app.isActive && (
-        <div className="text-xs text-green-600 mt-1 font-medium">Active</div>
-      )}
-    </div>
-  );
-};
-
-const FolderTile = ({
-  name,
-  apps,
-  onToggleFavorite,
-}: {
-  name: string;
-  apps: App[];
-  onToggleFavorite: (appId: string) => void;
-}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const activeCount = apps.filter((app) => app.isActive).length;
-
-  if (isExpanded) {
-    return (
-      <div className="col-span-full">
-        <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-gray-900 flex items-center gap-2">
-              <Folder className="w-5 h-5 text-blue-600" />
-              {name} ({apps.length})
-              {activeCount > 0 && (
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                  {activeCount} active
-                </span>
-              )}
-            </h3>
-            <Button
-              onClick={() => setIsExpanded(false)}
-              variant="outline"
-              size="sm"
-            >
-              Collapse
-            </Button>
-          </div>
-          <div className="grid grid-cols-4 gap-4">
-            {apps.map((app) => (
-              <AppTile
-                key={app.id}
-                app={app}
-                onToggleFavorite={onToggleFavorite}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      onClick={() => setIsExpanded(true)}
-      className="flex flex-col items-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-200 cursor-pointer group"
-    >
-      <div className="relative w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
-        <Folder className="w-6 h-6 text-white" />
-        {activeCount > 0 && (
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-            <span className="text-xs text-white font-bold">{activeCount}</span>
-          </div>
-        )}
-      </div>
-      <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
-        {name}
-      </span>
-      <span className="text-xs text-gray-500 mt-1">{apps.length} apps</span>
-    </div>
-  );
-};
 
 export default function Dashboard() {
   const [apps, setApps] = useState(allApps);
