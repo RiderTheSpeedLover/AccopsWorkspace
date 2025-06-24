@@ -22,13 +22,13 @@ const AppTile = ({
   icon: string;
   bgColor: string;
 }) => (
-  <div className="flex flex-col items-center p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group theme-hover-border">
+  <div className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border h-32">
     <div
-      className={`w-12 h-12 ${bgColor} rounded-lg flex items-center justify-center mb-2 group-hover:scale-105 transition-transform`}
+      className={`w-12 h-12 ${bgColor} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm`}
     >
       <span className="text-xl">{icon}</span>
     </div>
-    <span className="text-sm text-gray-700 text-center leading-tight">
+    <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
       {name}
     </span>
   </div>
