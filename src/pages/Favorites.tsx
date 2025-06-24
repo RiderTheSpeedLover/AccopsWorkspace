@@ -1,48 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import { useFavorites } from "@/contexts/FavoritesContext";
 import { Star, Grid3X3, Monitor } from "lucide-react";
-
-// Mock data - in a real app, this would come from global state/context
-const mockFavoriteApps = [
-  {
-    id: "word",
-    name: "Microsoft Word",
-    icon: "📄",
-    isActive: false,
-  },
-  {
-    id: "chrome",
-    name: "Google Chrome",
-    icon: "🌐",
-    isActive: true,
-  },
-];
-
-const mockFavoriteDesktops = [
-  {
-    id: "desktop1",
-    name: "SHD2K22",
-    icon: "💻",
-    isActive: true,
-    location: "Primary",
-  },
-  {
-    id: "desktop3",
-    name: "SHD-DEV01",
-    icon: "🖥️",
-    isActive: false,
-    location: "Development",
-  },
-];
 
 export default function Favorites() {
   const navigate = useNavigate();
-
-  // For demo purposes, using mock data
-  const favoriteApps = mockFavoriteApps;
-  const favoriteDesktops = mockFavoriteDesktops;
+  const { favoriteApps, favoriteDesktops, toggleFavorite } = useFavorites();
 
   const hasFavorites = favoriteApps.length > 0 || favoriteDesktops.length > 0;
 
