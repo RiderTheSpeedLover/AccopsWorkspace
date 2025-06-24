@@ -312,14 +312,27 @@ export default function Dashboard() {
                   {favoriteApps.length} favorites
                 </span>
               </div>
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-6">
+              <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 {favoriteApps.map((app) => (
-                  <AppTile
+                  <div
                     key={app.id}
-                    app={app}
-                    onToggleFavorite={handleToggleFavorite}
-                    showFavoriteButton={false}
-                  />
+                    className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
+                  >
+                    {app.isActive && (
+                      <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    )}
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200 shadow-sm">
+                      <app.icon className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <span className="text-sm font-medium text-gray-700 text-center leading-tight group-hover:text-gray-900">
+                      {app.name}
+                    </span>
+                    {app.isActive && (
+                      <div className="text-xs text-green-600 mt-1 font-medium">
+                        Active
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </section>
@@ -330,8 +343,8 @@ export default function Dashboard() {
                 No favorites yet
               </h3>
               <p className="text-gray-600 mb-6">
-                Add applications to your favorites by clicking the heart icon on
-                any app tile.
+                Start using applications to add them to your favorites
+                automatically.
               </p>
               <Button
                 onClick={() => {
