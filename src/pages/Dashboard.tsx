@@ -280,13 +280,19 @@ export default function Dashboard() {
     useFavorites();
 
   const handleToggleFavorite = (appId: string) => {
-    const app = allApps.find((a) => a.id === appId);
+    const app = allCombinedApps.find((a) => a.id === appId);
     if (app) {
+      const appType =
+        app.category === "Web"
+          ? "web"
+          : app.category === "Network"
+            ? "network"
+            : "application";
       toggleFavorite({
         id: app.id,
         name: app.name,
         icon: app.icon,
-        type: "application",
+        type: appType,
         isActive: app.isActive,
         category: app.category,
       });
@@ -306,7 +312,7 @@ export default function Dashboard() {
     }
   };
 
-  const recentApps = allApps.filter((app) => app.isActive);
+  const recentApps = allCombinedApps.filter((app) => app.isActive);
 
   return (
     <DashboardLayout activeItem="All" title="Applications" icon={Grid3X3}>
