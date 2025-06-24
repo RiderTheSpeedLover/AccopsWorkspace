@@ -179,6 +179,13 @@ const webAppsData = [
     isActive: false,
     isFavorite: false,
   },
+  {
+    id: "teams",
+    name: "Microsoft Teams",
+    icon: "💬",
+    isActive: true,
+    isFavorite: false,
+  },
 ];
 
 const FolderTile = ({
