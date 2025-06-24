@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/hooks/use-theme";
 import Login from "./pages/Login";
 import TwoStepVerification from "./pages/TwoStepVerification";
 import Dashboard from "./pages/Dashboard";
+import Favorites from "./pages/Favorites";
 import VirtualApplications from "./pages/VirtualApplications";
 import WebApplications from "./pages/WebApplications";
 import NetworkApplications from "./pages/NetworkApplications";
@@ -28,6 +29,7 @@ const App = () => (
               element={<TwoStepVerification />}
             />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route
               path="/virtual-applications"
               element={<VirtualApplications />}
