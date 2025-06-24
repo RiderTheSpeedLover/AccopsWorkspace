@@ -112,6 +112,16 @@ export const themes: Record<string, Theme> = {
     gradient: "from-slate-500 to-slate-600",
     description: "Professional and neutral",
   },
+  pearl: {
+    name: "pearl",
+    label: "Enterprise Pearl",
+    primary: "148 163 184", // slate-400 - lighter
+    primaryDark: "100 116 139", // slate-500
+    primaryLight: "203 213 225", // slate-300
+    accent: "248 250 252", // slate-50 - almost white
+    gradient: "from-slate-400 to-slate-500",
+    description: "Clean and minimal",
+  },
   cyan: {
     name: "cyan",
     label: "Electric Cyan",

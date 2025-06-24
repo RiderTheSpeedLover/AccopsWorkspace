@@ -69,7 +69,7 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-lg border-0 shadow-2xl">
-        <DialogHeader className="text-center space-y-4 pb-6">
+        <DialogHeader className="text-center space-y-3 pb-4">
           <div className="mx-auto w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
             <Palette className="w-6 h-6 text-white" />
           </div>
@@ -83,8 +83,8 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
           </div>
         </DialogHeader>
 
-        <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-3">
+          <div className="grid grid-cols-2 gap-2">
             {Object.entries(themes).map(([key, themeData]) => {
               const isSelected = currentTheme === key;
 
@@ -93,7 +93,7 @@ export function ThemeSelector({ isOpen, onClose }: ThemeSelectorProps) {
                   key={key}
                   onClick={() => handleThemeChange(key)}
                   disabled={isChanging}
-                  className={`relative p-3 rounded-lg border-2 transition-all duration-200 text-left group hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed ${
+                  className={`relative p-2 rounded-lg border-2 transition-all duration-200 text-left group hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed ${
                     isSelected
                       ? "border-blue-500 bg-blue-50 shadow-md"
                       : "border-gray-200 hover:border-gray-300 bg-white"
