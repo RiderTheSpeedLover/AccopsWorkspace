@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { Monitor } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Monitor, Star } from "lucide-react";
 
-const allDesktops = [
+interface Desktop {
+  id: string;
+  name: string;
+  icon: string;
+  isActive: boolean;
+  type: string;
+  location: string;
+  isFavorite: boolean;
+}
+
+const initialDesktops: Desktop[] = [
   {
     id: "desktop1",
     name: "SHD2K22",
@@ -10,6 +21,7 @@ const allDesktops = [
     isActive: true,
     type: "SHD",
     location: "Primary",
+    isFavorite: false,
   },
   {
     id: "desktop2",
@@ -18,6 +30,7 @@ const allDesktops = [
     isActive: false,
     type: "VDI",
     location: "Production",
+    isFavorite: false,
   },
   {
     id: "desktop3",
@@ -26,6 +39,7 @@ const allDesktops = [
     isActive: false,
     type: "SHD",
     location: "Development",
+    isFavorite: false,
   },
   {
     id: "desktop4",
@@ -34,6 +48,7 @@ const allDesktops = [
     isActive: false,
     type: "VDI",
     location: "Production",
+    isFavorite: false,
   },
   {
     id: "desktop5",
@@ -42,6 +57,7 @@ const allDesktops = [
     isActive: false,
     type: "SHD",
     location: "Testing",
+    isFavorite: false,
   },
   {
     id: "desktop6",
@@ -50,6 +66,7 @@ const allDesktops = [
     isActive: false,
     type: "VDI",
     location: "Backup",
+    isFavorite: false,
   },
   {
     id: "desktop7",
@@ -58,6 +75,7 @@ const allDesktops = [
     isActive: false,
     type: "SHD",
     location: "UAT",
+    isFavorite: false,
   },
   {
     id: "desktop8",
@@ -66,6 +84,7 @@ const allDesktops = [
     isActive: false,
     type: "VDI",
     location: "Disaster Recovery",
+    isFavorite: false,
   },
 ];
 
