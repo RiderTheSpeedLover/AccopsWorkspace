@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useFavorites } from "@/contexts/FavoritesContext";
 import {
   Star,
   Grid3X3,
