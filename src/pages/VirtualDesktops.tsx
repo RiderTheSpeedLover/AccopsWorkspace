@@ -1,8 +1,22 @@
 import React from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useFavorites } from "@/contexts/FavoritesContext";
-import { Monitor, Star } from "lucide-react";
+import {
+  Monitor,
+  Star,
+  MoreVertical,
+  Power,
+  Pause,
+  RotateCcw,
+  Activity,
+} from "lucide-react";
 
 interface Desktop {
   id: string;
