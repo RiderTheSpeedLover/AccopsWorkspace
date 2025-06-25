@@ -58,7 +58,24 @@ export function DashboardLayout({
   const [searchQuery, setSearchQuery] = useState("");
   const [showThemeSelector, setShowThemeSelector] = useState(false);
   const [showActivityManager, setShowActivityManager] = useState(false);
+  const [showSearchSuggestions, setShowSearchSuggestions] = useState(false);
   const navigate = useNavigate();
+
+  // Recent apps data for search suggestions
+  const recentApps = [
+    { id: "word", name: "Microsoft Word", icon: "📄" },
+    { id: "excel", name: "Microsoft Excel", icon: "📊" },
+    { id: "chrome", name: "Google Chrome", icon: "🌐" },
+    { id: "teams", name: "Microsoft Teams", icon: "💬" },
+    { id: "calculator", name: "Calculator", icon: "🧮" },
+    { id: "accopsai", name: "AccopsAI", icon: "🤖" },
+  ];
+
+  const filteredSuggestions = searchQuery
+    ? recentApps.filter((app) =>
+        app.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      )
+    : recentApps;
   const location = useLocation();
   const { currentTheme } = useTheme();
 
