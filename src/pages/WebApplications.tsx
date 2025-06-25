@@ -1,8 +1,22 @@
 import React from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useFavorites } from "@/contexts/FavoritesContext";
-import { Globe, Star } from "lucide-react";
+import {
+  Globe,
+  Star,
+  MoreVertical,
+  Power,
+  Pause,
+  RotateCcw,
+  Activity,
+} from "lucide-react";
 
 interface WebApp {
   id: string;
