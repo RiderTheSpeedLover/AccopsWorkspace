@@ -629,7 +629,8 @@ export default function Dashboard() {
                     {app.name}
                   </span>
                   {app.isActive && (
-                    <div className="text-xs text-green-600 mt-1 font-medium">
+                    <div className="text-xs text-green-600 mt-1 font-medium flex items-center gap-1">
+                      <Activity className="w-3 h-3" />
                       Active
                     </div>
                   )}
