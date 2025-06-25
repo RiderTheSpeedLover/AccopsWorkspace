@@ -13,6 +13,7 @@ import VirtualApplications from "./pages/VirtualApplications";
 import VirtualDesktops from "./pages/VirtualDesktops";
 import WebApplications from "./pages/WebApplications";
 import NetworkApplications from "./pages/NetworkApplications";
+import RemoteConnection from "./pages/RemoteConnection";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
