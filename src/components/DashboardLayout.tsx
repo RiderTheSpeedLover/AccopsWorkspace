@@ -33,13 +33,13 @@ import {
 
 const sidebarItems = [
   { icon: Grid3X3, label: "All", path: "/dashboard" },
-  { icon: Star, label: "Favorites", path: "/favorites" },
   {
     icon: Settings,
     label: "Applications",
     path: "/virtual-applications",
   },
   { icon: Monitor, label: "Desktops", path: "/virtual-desktops" },
+  { icon: Network, label: "Remote Connection", path: "/remote-connection" },
 ];
 
 interface DashboardLayoutProps {
