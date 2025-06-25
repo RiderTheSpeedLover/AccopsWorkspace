@@ -44,6 +44,7 @@ const App = () => (
                 path="/network-applications"
                 element={<NetworkApplications />}
               />
+              <Route path="/remote-connection" element={<RemoteConnection />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
