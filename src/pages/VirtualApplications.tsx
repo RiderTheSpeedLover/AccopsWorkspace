@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useFavorites } from "@/contexts/FavoritesContext";
 import {
   Settings,
@@ -12,6 +18,11 @@ import {
   Grid3X3,
   Star,
   Globe,
+  MoreVertical,
+  Power,
+  Pause,
+  RotateCcw,
+  Activity,
 } from "lucide-react";
 
 const appFolders = [
