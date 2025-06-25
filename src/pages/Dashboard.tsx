@@ -595,8 +595,34 @@ export default function Dashboard() {
                   key={app.id}
                   className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer group theme-hover-border relative h-32"
                 >
+                  {/* Three Dot Menu - Only visible on hover */}
                   {app.isActive && (
-                    <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="absolute top-1 right-1 w-6 h-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <MoreVertical className="w-3 h-3 text-gray-600" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem className="text-red-600">
+                          <Power className="w-3 h-3 mr-2" />
+                          Power Off
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <Pause className="w-3 h-3 mr-2" />
+                          Pause
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <RotateCcw className="w-3 h-3 mr-2" />
+                          Restart
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   )}
 
                   {/* Favorite Star Button */}
