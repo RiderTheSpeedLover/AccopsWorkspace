@@ -189,8 +189,44 @@ export function DashboardLayout({
                 placeholder="search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setShowSearchSuggestions(true)}
+                onBlur={() =>
+                  setTimeout(() => setShowSearchSuggestions(false), 200)
+                }
                 className="pl-10 pr-4 h-10 w-72 border-gray-300 rounded-lg theme-focus"
               />
+
+              {/* Search Suggestions Dropdown */}
+              {showSearchSuggestions && (searchQuery || true) && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
+                  {searchQuery === "" && (
+                    <div className="px-3 py-2 text-xs font-semibold text-gray-500 bg-gray-50 border-b">
+                      Recent Applications
+                    </div>
+                  )}
+                  {filteredSuggestions.length > 0 ? (
+                    filteredSuggestions.map((app) => (
+                      <div
+                        key={app.id}
+                        className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                        onClick={() => {
+                          setSearchQuery(app.name);
+                          setShowSearchSuggestions(false);
+                        }}
+                      >
+                        <span className="text-lg">{app.icon}</span>
+                        <span className="text-sm text-gray-700">
+                          {app.name}
+                        </span>
+                      </div>
+                    ))
+                  ) : searchQuery ? (
+                    <div className="px-3 py-4 text-sm text-gray-500 text-center">
+                      No applications found for "{searchQuery}"
+                    </div>
+                  ) : null}
+                </div>
+              )}
             </div>
 
             <div className="flex items-center gap-2">
