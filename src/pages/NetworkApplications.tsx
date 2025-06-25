@@ -1,8 +1,24 @@
 import React from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useFavorites } from "@/contexts/FavoritesContext";
-import { Network, Monitor, Wifi, Star } from "lucide-react";
+import {
+  Network,
+  Monitor,
+  Wifi,
+  Star,
+  MoreVertical,
+  Power,
+  Pause,
+  RotateCcw,
+  Activity,
+} from "lucide-react";
 
 interface NetworkApp {
   id: string;
