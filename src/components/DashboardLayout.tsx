@@ -169,7 +169,7 @@ export function DashboardLayout({
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
                 type="text"
-                placeholder="Search applications..."
+                placeholder="search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 pr-4 h-10 w-72 border-gray-300 rounded-lg theme-focus"
