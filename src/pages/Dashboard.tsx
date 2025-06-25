@@ -16,6 +16,11 @@ import {
   Globe,
   Network,
   Wifi,
+  MoreVertical,
+  Power,
+  Pause,
+  RotateCcw,
+  Activity,
 } from "lucide-react";
 
 interface App {
